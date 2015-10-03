@@ -1,0 +1,94 @@
+/*
+*  File:           h1.java
+*  Author:         <name>
+*  Last modified:  <date>
+* 
+*  This class implements a number of simple arithmetic methods.
+*/
+
+//---------------------------------------------
+
+public class h1 {
+ 
+//---------------------------------------------
+  
+/* Method: multBy2()
+ * This method returns the multiplication of a double by 2.
+ */
+  
+  public static double multBy2(double x) {
+    double result = 0.0;
+    
+    return result;   
+  } // end multBy2
+  
+//---------------------------------------------
+  
+    
+/* Method: myMult()
+ * This method returns the multiplication of two doubles.
+ */
+  
+  // public static double myMult(double x, double y) {
+    
+  // } // end myMult
+  
+//---------------------------------------------
+  
+/* Method: square()
+ * This method returns the square of a double.
+ */
+  
+  
+//---------------------------------------------
+  
+  /* Method: circleArea()
+ * This method returns the area of a circle given
+ * the radius of the circle.
+ */
+  
+  
+//---------------------------------------------
+  
+  /* Method: fToC()  
+   * This method converts a temperature in Fahrenheit to a temperature
+   * in Celsius.
+   */
+  
+  
+//---------------------------------------------
+  
+  /* Method: secToDistanceDrop()  
+   * This method returns the number of feet an object 
+   * would fall on earth after a given number of seconds
+   */
+  
+  
+//---------------------------------------------
+  
+  /* Method: hypotLength()  
+   * This method returns the length of a right triangle's 
+   * hypotenuse given the two shorter sides.
+   */
+  
+  
+//---------------------------------------------
+  
+  /* Method: triangleArea()  
+   * This method returns the area of a triangle 
+   * given the two shorter sides. It uses Heron's formula
+   */
+  
+//---------------------------------------------
+  
+  /* Method: ringArea()  
+   * This method returns the area of a ring 
+   * given by defined by concentric circles of
+   * different radii. You should assume that the
+   * first parameter is the larger radii.
+   */
+  
+  
+//---------------------------------------------
+  
+} // end class h1
