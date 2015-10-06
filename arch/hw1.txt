@@ -44,35 +44,60 @@ Chapter 1 Homework
 
 7. Convert 1022base10 to unsigned hexadecimal.
 
+╔══════╤═══════════════╗
+║ 1022 │ 3 * 256 + 254 ║
+╟──────┼───────────────╢
+║ 254  │ 15 * 16  + 14 ║
+╟──────┼───────────────╢
+║ 14   │ 14 * 1 + 0    ║
+╚══════╧═══════════════╝
 
+1022base10 = 0x3FE
 
 8. What is the decimal value of the folloing bit pattern assuming the number is coded as unsigned binary in 8 bits? 1110 1101
 
-
+2**7 + 2**6 + 2**5 + 2**3 + 2**2 + 2**0 = 237
 
 10. What is the hexadecimal value of the number 1019base10 assuming unsigned 12-bit binary representation?
 
+╔══════╤═══════════════╗
+║ 1019 │ 3 * 256 + 251 ║
+╟──────┼───────────────╢
+║ 251  │ 15 * 16 + 11  ║
+╟──────┼───────────────╢
+║ 11   │ 11 * 1 + 0    ║
+╚══════╧═══════════════╝
 
+1019base10 = 0x3FB
 
-13. Waht is the decimal value of 0xFAB assuming unsigned binary representation?
+13. What is the decimal value of 0xFAB assuming unsigned binary representation?
 
-
+15 * 256 + 10 * 16 + 11 * 1 = 4011
 
 15. What is the binary value of the hex number 0xCAFE assuming 16 bit unsigned representation?
 
-
+12 * 4096 + 10 * 256 + 15 * 16 + 14 * 1 = 51966
 
 18. What is the range of unsigned integers that can be represented in 12 bits?
 
-
+4095
 
 23. Draw the equivalent logic for the Nand gate using only And, Or, Not gates.
 
-
+     ****        *
+---- *   *       * *
+     *    * -----*  * O
+     *    *      * *
+---- *   *       **
+     ****
 
 24. Draw the equivalent logi for the Nor gate using only And, Or, Not gates.
 
-
+        * *           *
+=======  *  *         * *
+         *    * ===== *   * O
+=======  *  *         * *
+        * *           *
 
 25. Draw the equivalent logic for the Xor gate using only And, Or, Not gates.
 
@@ -80,6 +105,8 @@ Chapter 1 Homework
 
 26. Give the logic expression for the folloing circuit.
 
-
+AB + !(BC)
 
 27. Draw the logic circuit for the following logic expression. (A | !B) && !(B | C)
+
+
