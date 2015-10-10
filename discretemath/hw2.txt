@@ -1,0 +1,216 @@
+William "Chris" Fenton
+CSF - Discrete Math
+Homework 2
+
+
+===========
+Symbol Note
+===========
+
+I'm using E for the existential quantifier "there exists".
+I'm using A for the universal quantifier "for all".
+
+===========
+Section 1.4
+===========
+
+2. Let P(x) be the statement "the word x contains the letter a." What are these truth values?
+
+a) true b) false c) false d) true
+
+4. State the value of x after the statement if P (x) then x := 1 is executed, where P(x) is the statement “x > 1,” if the value of x when this statement is reached is
+
+a) x = 0, x > 1 == false, x = 0
+b) x = x, x > 1 == false, x = 1
+c) x = 2, x > 2 == true, x = 1
+
+10. Let C(x) be the statement “x has a cat,” let D(x) be the statement “x has a dog,” and let F (x) be the statement “x has a ferret.” Express each of these statements in terms of C(x), D(x), F(x), quantifiers, and logical connectives. Let the domain consist of all students in your class.
+
+a) A student in your class has a cat, a dog, and a ferret.
+
+Ex ( C(x) && D(x) && F(x) )
+
+b) All students in your class have a cat, a dog, or a ferret.
+
+A(x) ( C(x) || D(x) || F(x) )
+
+c) Some student in your class has a cat and a ferret, but not a dog.
+
+Ex ( C(x) && F(x) && !D(x) )
+
+d) No student in your class has a cat, a dog, and a ferret.
+
+Ax ( !C(x) && !F(x) && !D(x) )
+
+e) For each of the three animals, cats, dogs, and ferrets, there is a student in your class who has this animal as a pet.
+
+( Ex C(x) ) && ( Ex F(x) ) && ( Ex D(x) )
+
+12. Let Q(x) be the statement “x + 1 > 2x.” If the domain consists of all integers, what are these truth values?
+
+a) Q(0), T
+b) Q(-1), T
+c) Q(1), F
+d) Ex Q(x), T, Example Q(0)
+e) Ax Q(x), F, Example Q(1)
+f) Ex !Q(x), T, Example Q(1)
+g) Ax !Q(x), F, Example Q(0)
+
+16. Determine the truth value of each of these statements if the domain of each variable consists of all real numbers.
+
+a) Ex (x**2 = 2), T, Example (sqrt(2)**2 = 2
+b) Ex (x**2 = -1), F
+c) Ax (x**2 + 2 >= 1), T
+d) Ax (x**2 != x), F, Example 1**2 = 1
+
+===========
+Section 1.5
+===========
+
+2. Translate these statements into English, where the domain for each variable consists of all real numbers.
+
+a) There exists a real number x for every real number y where xy = y
+b) For every real number x and every real number y, if x is positive and y is negative then x - y is greater than zero.
+c) For ever real number x and every real number y there exists a real number z where x = y + z.
+
+4. Let P (x, y) be the statement “Student x has taken class y,” where the domain for x consists of all students in your class and for y consists of all computer science courses at your school. Express each of these quantifications in English.
+
+a) There exists a student that has taken a computer science course at our school.
+b) There exists a student that has taken all computer science courses at our school.
+c) All computer science students have taken a computer science course at our school.
+d) There exists a computer science course that every computer science student in my class has taken.
+e) For every computer science course has been taken by a computer science student in my class.
+f) All computer science students in my class have take all the computer science courses at my school.
+
+8. Let Q(x, y) be the statement “student x has been a con- testant on quiz show y.” Express each of these sentences in terms of Q(x , y ), quantifiers, and logical connectives, where the domain for x consists of all students at your school and for y consists of all quiz shows on television.
+
+a) Ex Ey Q(x,y)
+b) Ax Ay !Q(x,y)
+c) Ex ( Q(x,Jeopardy) && Q(x,Wheel of Fortune) )
+d) Ay Ex Q(x,y)
+e) Ex Ey ( Q(x,Jeopardy) && Q(y,Jeopardy) && (x != y) )
+
+===========
+Section 1.6
+===========
+
+2. Find the argument form for the following argument and determine whether it is valid. Can we conclude that the conclusion is true if the premises are true?
+
+If George does not have eight legs, then he is not a spider.
+George is a spider.
+Therefore George has eight legs.
+
+P = "George does not have eight legs", q = "George is not a spider"
+P -> q
+!q
+------
+! P
+
+True
+
+4. What rule of inference is used in each of these arguments?
+
+a) Simplification
+b) Disjunctive syllogism
+c) Modus ponens
+d) Addition
+e) Hypothetical syllogism
+
+10. For each of these sets of premises, what relevant conclu- sion or conclusions can be drawn? Explain the rules of in- ference used to obtain each conclusion from the premises.
+
+a) “If I play hockey, then I am sore the next day.” “I use the whirlpool if I am sore.” “I did not use the whirlpool.”
+
+P = "I play hockey"
+Q = "I am sore"
+R = "I use the whirlpool"
+
+P -> Q
+Q -> r
+!R
+
+False
+
+b) “If I work, it is either sunny or partly sunny.” “I worked last Monday or I worked last Friday.” “It was not sunny on Tuesday.” “It was not partly sunny on Friday.”
+
+P(x) = "I work on x"
+Q(x) = "It is Sunny on x"
+R(x) = "It is Partly Sunny on x"
+
+Ax ( P(x) -> ( Q(x) || R(x) ) )
+P(Monday) || P(Friday)
+!Q(Tuesday)
+!R(Friday)
+
+P(Monday) -> ( Q(Monday) || R(Monday) )
+P(Friday) -> ( Q(Friday) || R(Friday) )
+P(Friday) -> Q(Friday) // !R(Friday) It wasn't partly sunny on Friday, Disjunctive syllogism
+It was sunny on Friday or sunny or partly sunny on Monday.
+
+c) “All insects have six legs.” “Dragonflies are insects.” “Spiders do not have six legs.” “Spiders eat dragon- flies.”
+
+P(x) = "x is an insect"
+Q(x) = "x is a dragonfly"
+R(x) = "x has 6 legs"
+S(x) = "x is a spider"
+T(x,y) = "x eats y"
+
+Ax ( P(x) -> R(x) )
+Ax ( Q(x) -> P(x) )
+Ax ( S(x) -> !P(x) )
+Ax ( ( S(x) && Q(y) ) -> T(x,y) )
+
+P(x) -> R(x) // If it's an insect it has 6 legs
+Q(x) -> P(x) // If it's a dragonfly it is an insect
+Q(x) -> R(x) // Hypothetical syllogism
+S(x) -> !R(x) // If it's a spider it doesn't have 6 legs
+!R(x) -> !P(x) // Contrapositive, if it doesn't have 6 legs, it's not an insect
+S(x) -> !P(x) // Spiders are not insects!
+
+d) “Every student has an Internet account.” “Homer does not have an Internet account.” “Maggie has an Internet account.”
+
+P(x) = "x is a student"
+Q(x) = "x has an Internet account"
+Ax ( P(x) -> Q(x) )
+!Q(Homer)
+Q(Maggie)
+
+P(Homer) -> Q(Homer) // If Homer's a student, he has an Internet account
+!Q(Homer) // Homer doesn't have an Internet account
+!P(Homer) // Therefore Homer isn't a student via Modus tollens
+
+e) “All foods that are healthy to eat do not taste good.” “Tofu is healthy to eat.” “You only eat what tastes good.” “You do not eat tofu.” “Cheeseburgers are not healthy to eat.”
+
+P(x) = "x is healthy to eat"
+Q(x) = "x tastes good"
+R(x) = "You eat x"
+
+Ax ( P(x) -> !Q(x) )
+P(tofu)
+Ax ( R(x) == Q(x) )
+!R(tofu)
+!P(Cheeseburgers)
+
+P(tofu) -> !Q(tofu) // If tofu is healty, it doesn't taste good
+P(tofu) // Tofu is healty
+!Q(tofu) // Therefore tofu doesn't taste good
+R(x) == Q(x) // You only eat what tastes good
+P(x) -> !Q(x) // Healthy implies not tasting good
+!R(x) == !Q(x) // You don't eat what's doesn't taste good
+P(x) -> !R(x) // Therefore you don't eat healthy food
+
+f) “I am either dreaming or hallucinating.” “I am not dreaming.” “If I am hallucinating, I see elephants running down the road.”
+
+P = "I am dreaming"
+Q = "I am hallucinating"
+R = "I see elephants running down the road"
+
+P || Q
+!P
+Q -> R
+
+P || Q
+!P
+----
+Q // Disjunctive syllogism
+Q -> R // I see elephants running down the road
+
