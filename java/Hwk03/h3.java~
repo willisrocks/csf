@@ -1,0 +1,47 @@
+/*
+ *  File:           h3.java
+ *  Author:         <name>
+ *  Last modified:  <date>
+ * 
+ *  This class includes methods that make decisions
+ */
+
+//---------------------------------------------
+
+public class h3 {
+  
+//---------------------------------------------
+  
+  // greatest5() takes five integers and returns the largest
+  //public static int greatest5(int x,int y, int z, int a,int b) {
+    
+  //} // end of greatest5()
+//---------------------------------------------
+  
+  // sum45() takes five integers and returns the sum of the
+  // largest four
+  
+  //---------------------------------------------
+  
+  // anyDivide3() takes three integers and determines if any one number
+  // divides another, returning a boolean. If any are 0, it returns
+  // false.
+  
+    //---------------------------------------------
+  
+  /*
+   *  sumEven4() takes four integers and returns the sum
+   *  of all the numbers that are even.
+   * 
+   */
+  
+//=================================================
+  
+ /*
+  * sumEvenProdOdd4()  takes four integers and returns an integer.
+  * It should return the sum of the numbers that are even plus the 
+  * product of the numbers that are odd. NOTE: If there are no odd
+  * numbers then the product is 1.
+  */
+  
+} // end class h3
