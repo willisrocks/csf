@@ -1,0 +1,43 @@
+William "Chris" Fenton
+CSF - Digital Logic
+HW3
+
+1. Draw the block component for the 8-bit Bitwise Or dataflow component.
+
+
+2. Build a logic table that for a 3-bit Bounded Integer Increment function.
+
+
+3. Give the logic equations for each of the three outputs of the 3-bit Bounded Integer Increment signals in the previous problem.
+
+
+4. Draw the block component for the octal decoder.
+
+
+5. Give the function table for the octal decoder.
+
+
+6. Give the internal logic for the 2-to-1 multiplexer on 4-bit data paths.
+
+
+7. This problem is about the Tiny ALU component. Give the output bit pattern of the component for the following values of the input signals:
+(a) k = 10110111, Op = 00
+(b) k = 10110111, Op = 01
+(c) k = 10110111, Op = 10
+(d) k = 10110111, Op = 11
+
+
+
+8. Draw the detailed logic diagram for a 4-bit version of the Tiny ALU component. Label the two bit Op signal inputs as Op1 and Op0, where zero is the least significant bit. Label the individual input signals of the A bus as a3, a2, a1, a0 from most to least significant.
+
+
+
+9. Give the logic expression for the 4-bit Tiny ALU component that you constructed in the previous problem. You will need expressions for the four output signals Out3, Out2, Out1, Out0 in terms of the six input signals.
+
+
+
+10. Suppose you wanted to build a 3-to-1 multiplexer. How many select bits would you need? Give the function table for a 3-to-1 multiplexer. Hint: you are entitled to signify some outputs as Undefined.
+
+
+
+11. How many select bits are needed for an 8-to-1 multiplexer? What decoder component is used to implement an 8-to-1 multiplexer?
