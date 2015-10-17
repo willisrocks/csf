@@ -1,0 +1,130 @@
+Chris Fenton
+CSF - Discrete Math
+Homework #3
+
+===========
+Chapter 2.1
+===========
+
+2. Use set builder notation to give a description of each of these sets.
+
+a) {0,3,6,9,12}
+
+{ 3x ∈ R : 0 <= x <= 4 }
+
+5. Determine whether each of these pairs of sets are equal.
+
+a) {1,3,3,3,5,5,5,5,5},{5,3,1}
+
+True. {1,3,3,3,5,5,5,5,5} == {5,3,1}
+
+6. Suppose that A = {2,4,6}, B = {2,6}, C = {4,6}, and D = {4, 6, 8}. Determine which of these sets are subsets of which other of these sets.
+
+B ⊆ A
+C ⊆ A, C ⊆ D
+
+10. Determine whether these statements are true or false.
+
+a) ∅ ∈ {∅}, True
+b) ∅ ∈ {∅,{∅}}, True
+c) {∅} ∈ {∅}, False
+d) {∅} ∈ {{∅}}, True
+e) {∅} ⊂ {∅,{∅}}, True
+f) {{∅}} ⊂ {∅, {∅}}, True
+g) {{∅}} ⊂ {{∅},{∅}}, False
+
+16. Use a Venn diagram to illustrate the relationships A ⊂ B and A ⊂ C.
+
+<INSERT IMAGE venn-2-1-16.png>
+
+20. What is the cardinality of each of these sets?
+
+a) ∅ = 0
+b) {∅} = 1
+c) {∅,{∅}} = 2
+d) {∅,{∅},{∅,{∅}}} = 3
+
+
+
+36. How many different elements does A × B × C have if A has m elements, B has n elements, and C has p elements?
+
+| A x B x C | = m * n * p
+
+44. Find the truth set of each of these predicates where the domain is the set of integers.
+
+a) P(x):x^3 ≥ 1, {1,2,3,...,infinity}
+b) Q(x):x^2 = 2, {}
+c) R(x):x < x^2, {0,1}
+
+
+
+===========
+Chapter 2.2
+===========
+
+4. Let A = {a,b,c,d,e} and B = {a,b,c,d,e,f,g,h}. Find
+
+a) A ∪ B., {a,b,c,d,e,f,g,h}
+b) A ∩ B., {{A}}
+c) A − B., {}
+d) B − A., {f,g,h}
+
+6. Prove the identity laws in Table 1 by showing that
+
+a) A ∪ ∅ = A.
+
+x ∈ A || x ∈ ∅
+x ∈ A           // x is not an element of the empty set!
+
+b) A ∩ U = A.
+
+A ∩ U ⊆ A       // The intersection is a subset of both sets
+x ∈ A && x ∈ A  // If x is an element of A it's also an element of the universe
+x ∈ A ∩ U       // x is an element of the intersection
+A ⊆ A ∩ U       // A is a subset of the intersection A ∩ U
+A ∩ U = A
+
+8. Prove the idempotent laws in Table 1 by showing that
+
+a) A ∪ A = A.
+b) A ∩ A = A.
+
+╔═══╤═══════╤═══════╗
+║ A │ A ∪ A │ A ∩ A ║
+╠═══╪═══════╪═══════╣
+║ 0 │ 0     │ 0     ║
+╟───┼───────┼───────╢
+║ 1 │ 1     │ 1     ║
+╚═══╧═══════╧═══════╝
+
+
+14. Find the sets A and B if A − B = {1,5,7,8}, B − A = {2,10}, and A ∩ B = {3,6,9}.
+
+{1,5,7,8} ⊆ A     // From A - B we know that A has these elements
+{1,5,7,8} ⊄ B     // We also know that B doesn't contain these elements
+{2,10} ⊆ B        // From B - A we know that B has these elements
+{2,10} ⊄ A        // And A doesn't have these elements
+{3,6,9} ⊆ A and B // The intersection is a subset of of both sets
+-----------------
+A = {1,3,5,6,7,8,9}
+B = {2,3,6,9,10}
+
+
+18. Let A, B, and C be sets. Show that
+
+d) (A − C) ∩ (C − B) = ∅.
+
+x ∈ (A - C) && x ∈ (C - B)                // intersection
+(x ∈ A) && (x ∉ C) && (x ∈ C) && (x ∉ B)  // difference
+x = ∅
+// If x is both an element of and not an element of C then x is ∅
+
+
+32. Find the symmetric difference of {1, 3, 5} and {1, 2, 3}.
+
+{1,3,5} ∆ {1,2,3} = ({1,3,5} ∪ {1,2,3}) - ({1,3,5} ∩ {1,2,3})
+{1,2,3,5} - {1,3} = {2,5}
+
+34. Draw a Venn diagram for the symmetric difference of the sets A and B.
+
+<Insert venn-2-2-34.png>
