@@ -1,0 +1,66 @@
+/*
+ *  File:           h4a.java
+ *  Author:         <name>
+ *  Last modified:  <date>
+ * 
+ *  This class includes methods that use the for statement
+ */
+
+//---------------------------------------------
+
+public class h4 {
+  
+//---------------------------------------------
+  
+  /* sumTo() takes an integer x and returns the sum
+   * 1+2+3..n
+   */
+  public static int sumTo(int x) {
+    int result = 0;
+
+    return result;
+  } // end sumTo()
+  
+//---------------------------------------------
+  
+  
+  /* sumOfSums() takes an integer x and returns the sum of the
+   * sumTo of 1, 2, .., x
+   */
+  
+//---------------------------------------------
+  
+  /*sumOfEvenBetween() takes two integers, x and y,
+   * and returns the sum of all integers
+   */
+ 
+  
+//---------------------------------------------  
+ 
+  /* sumPropDivisors() takes a number, x, and
+   * returns the sum of its proper divisors
+   */
+ 
+  
+//---------------------------------
+  
+  /* isPerfect() takes an integer x and returns
+   * a boolean. It returns true of the number
+   * is perfect, a nummber that equals the sum
+   * of its proper divisors
+   */
+  
+//---------------------------------
+  
+  /* isPrime() takes an integer x and determines
+   * if the number is prime, returning a boolean.
+   */
+
+
+//---------------------------------
+
+LOOK at THE PDF FOR THE TWO "EXTRA CREDIT" problems!
+  
+//==========================================
+  
+} // end class h4a
