@@ -1,7 +1,7 @@
 /*
  *  File:           h4a.java
  *  Author:         Chris Fenton
- *  Last modified:  10/20/2015
+ *  Last modified:  10/21/2015
  * 
  *  This class includes methods that use the for statement
  */
@@ -150,23 +150,22 @@ public class h4 {
 
 //---------------------------------
   
+  //LOOK at THE PDF FOR THE TWO "EXTRA CREDIT" problems!
+  
   /* nthPerfect() takes an integer x and determines
    * the nth perfect number, returning an integer.
-   */
+   */  
   public static int nthPerfect(int x) {
     int result = 0;
-    int i = 1; // counter variable for inside the while loop
-    boolean perfect = false; // flag variable
+    int i = 1; 
+    int k = 1;
     
-    for(int n=1;n<=x;n++) { // loop until n = x to find the nth perfect number     
-      while(!perfect) {     // loop until we find a perfect number
-        if(isPerfect(i)) {
-          result = i;
-          perfect = true;
-        }
-        i += 1;              
+    for(int n=1;k<=x;n++) {   
+      if(isPerfect(i)) {
+        result = i;
+        k += 1;
       }
-      perfect = false;      // reset the perfect flag to false after we find a perfect number
+      i += 1;              
     }
     
     return result;
@@ -177,10 +176,45 @@ public class h4 {
   /* isAmicable() takes two integers,  x and y, and determines
    * if they are amicable, returning an boolean.
    */
-  
+  public static boolean isAmicable(int x, int y) {
+    boolean result = false;
+    
+    if(x != y) {
+      if(sumPropDivisors(x) == y && sumPropDivisors(y) == x) {
+        result = true;
+      }
+    }
+    
+    return result;
+  }
   
 //---------------------------------
-//LOOK at THE PDF FOR THE TWO "EXTRA CREDIT" problems!
+  /* nthAmicablePair() takes an integer x (less than 8) and determines
+   * the nth amicable pair, printing the first x amicable pairs to the console.
+   * restricting x to integers below 8 just to prevent long execution times.
+   * inspiration from https://www.youtube.com/watch?v=IbhBki25KGc and projectEuler.
+   */
+  public static void nthAmicablePair(int x) {
+    assert x < 8 : "x is greater than 8";
+    
+    int start = 2;
+    int i = 1;
+       
+    for(int n=start;i<=x;n++) {
+      int newNum = sumPropDivisors(n);
+      if (newNum <= n) { // jump ahead if newNum is less than n
+        continue;
+      }
+      if(isAmicable(newNum,n)) {
+        System.out.println(i + " " + n + "," + newNum);
+        i += 1;
+      }  
+    }       
+    
+  }
+//---------------------------------
+  
+
   
 //==========================================
   
