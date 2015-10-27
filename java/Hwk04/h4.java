@@ -294,10 +294,13 @@ public class h4 {
     a = abs(a);
     b = abs(b);
     
+    quot = a;
+    
     // subtract b from a n times
-    for(int i=0;i<=a;i=i+k) {
+    for(int i=0;i<=quot;i=i+k) {
       if ((a - b) >= b) {
         k = b;
+        quot = a - b;
         result++;
       } else {
         k = a - b;
