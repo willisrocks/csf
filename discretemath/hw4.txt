@@ -1,0 +1,95 @@
+Chris Fenton
+CSF - Discrete Math
+HW4
+
+=============
+Section 2.3
+=============
+
+2. Determine whether f is a function from Z to R if
+a) f(n)=±n.
+b) f(n)=√n2 +1.
+c) f(n)=1/(n2−4).
+
+4. Find the domain and range of these functions. Note that in each case, to find the domain, determine the set of elements assigned values by the function.
+a) the function that assigns to each nonnegative integer
+its last digit
+b) the function that assigns the next largest integer to a
+positive integer
+c) the function that assigns to a bit string the number of
+one bits in the string
+d) the function that assigns to a bit string the number of
+bits in the string
+
+6. Find the domain and range of these functions.
+a) the function that assigns to each pair of positive inte-
+gers the first integer of the pair
+b) the function that assigns to each positive integer its largest decimal digit
+c) the function that assigns to a bit string the number of ones minus the number of zeros in the string
+d) the function that assigns to each positive integer the largest integer not exceeding the square root of the integer
+e) the function that assigns to a bit string the longest string of ones in the string
+
+8. Find these values
+a) ⌊1.1⌋
+b) ⌈1.1⌉
+c) ⌊−0.1⌋
+d) ⌈−0.1⌉
+e) ⌈2.99⌉
+f ) ⌈−2.99⌉
+g)⌊1/2 + ⌈1/2⌉⌉
+h) ⌈⌊1/2⌋+⌈1/2⌉+ 1/2⌉
+
+12. Determine whether each of these functions from Z to Z is one-to-one.
+
+a) f(n)=n − 1
+b) f(n)=n^2 + 1
+c) f(n) = n^3
+d) f(n) = ⌈n/2⌉
+
+33. Suppose that g is a function from A to B and f is a function from B to C .
+a) Show that if both f and g are one-to-one functions, then f ◦ g is also one-to-one.
+
+40. Let f be a function from the set A to the set B. Let S and T be subsets of A. Show that
+b) f(S∩T)⊆f(S)∩f(T).
+
+=============
+Section 2.4
+=============
+
+4. What are the terms a0, a1, a2, and a3 of the sequence {an},
+where an equals
+a) (−2)^n ? b) 3? c)7+4^n? d)2^n+(−2)^n?
+
+10. Find the first six terms of the sequence defined by each
+of these recurrence relations and initial conditions.
+b) an =an−1 −an−2,a0 =2,a1 =−1 
+c)an=3an2−1,a0=1
+
+20. Assume that the population of the world in 2010 was 6.9
+billion and is growing at the rate of 1.1% a year.
+a) Set up a recurrence relation for the population of the
+world n years after 2010.
+b) Find an explicit formula for the population of the
+world n years after 2010.
+c) What will the population of the world be in 2030?
+
+================
+Section 2.5
+================
+
+2. Determine whether each of these sets is finite, countably infinite, or uncountable. For those that are countably in- finite, exhibit a one-to-one correspondence between the set of positive integers and that set.
+a) theintegersgreaterthan10
+b) the odd negative integers
+c) the integers with absolute value less than 1,000,000
+d) the real numbers between 0 and 2
+e) thesetA×Z+ whereA={2,3}
+f) theintegersthataremultiplesof10
+
+4. Determine whether each of these sets is countable or un-
+countable. For those that are countably infinite, exhibit a one-to-one correspondence between the set of positive integers and that set.
+a) integers not divisible by 3
+b) integers divisible by 5 but not by 7
+c) the real numbers with decimal representations consisting of all 1s
+d) the real numbers with decimal representations of all 1s or 9s
+
+8. Show that a countably infinite number of guests arriving at Hilbert’s fully occupied Grand Hotel can be given rooms without evicting any current guest.

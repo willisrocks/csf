@@ -1,0 +1,97 @@
+William “Chris” Fenton
+CSF - Problem Solving WS
+WS3
+
+========
+Overflow
+========
+
+For this problem, assume that you have a 5-bit signed 2’s complement number. 
+
+1. What is the decimal value of 10000base2?
+
+0 x 1 + 0 x 2 + 0 x 4 + 0 x 8 + 1 x 16 = -16
+
+2. Negate 10000base2.
+
+01111 
+
+3. In Digital Logic lab you developed a logic expression to detect overflow based on the signs of the two operands (signA, signB), the sign of the result (signOut), and the subtract control signal (Sub). Compare your logic expression with at least two other students with whom you have not worked on this problem. If you don’t have a solution yet, then develop one. 
+
+Ovfl = (sA*sB*~sS) + (~sA*~sB*sS) + (sA*~sB*~sS*sNeg) + (~sA*sB*sS*sNeg)	
+
+4. Another way to identify overflow is if the carry-in to the sign bit is not the same as the carry-out of the sign bit. Write the expression to detect overflow based on the signals CinSign and CoutSign. 
+
+Ovfl = CinSign XOR CoutSign
+
+5. Test your solution(s) on some boundary conditions (values at the ends of the ranges.) 
+
+15 + 1
+
+01111
+00001
+--------
+10000
+
+CinSign = 1, CoutSign = 0
+1 XOR 0 = 1, Overflow is true
+
+6. It is possible for overflow to occur in the negation of a 2’s complement number. If your solution in the previous two parts of the problem do not account for this case, extend your solutions so that they do.
+
+No. I don’t think so. I tried at the boundaries and 8.
+
+
+==========
+Quantifiers
+==========
+
+1. Find the negation of these statements: (a) If it snows today then I will go skiing tomorrow. (b) Every person in this class understands mathematical induction. (c) Some students in this class do not like discrete math. (d) In every math class there is some student who falls asleep during lectures.
+
+If it doesnt snow today, then I will not go skiing tomorrow
+There exists a person in this class that does not understand mathematical induction
+All students in this calls like discrete math.
+There exists a math class where all students stay awake during lectures.
+
+================
+Sets and Functions
+================
+
+1. Let f and g be functions from {1, 2, 3, 4} to { 0a 0 , 0 b 0 , 0 c 0 , 0 d 0} and from { 0a 0 , 0 b 0 , 0 c 0 , 0 d 0} to {1, 2, 3, 4} respectively such that f(1) =0 d 0 , f(2) =0 c 0 , f(3) =0 a 0 , and f(4) =0 b 0 . And g( 0a 0 = 2, g( 0 b 0 ) = 1, g( 0 c 0 ) = 3 and g( 0d 0 ) = 2.
+
+(a) Is f one-to-one? Is g one-to-one? (b) Is f onto? Is g onto? (c) Does either f or g have an inverse? If so, find this inverse.
+
+f is one-to-one, g is not one-to-one
+f is onto, g is not onto
+f has an inverse: f^-1(a) = 3, f^-1(b) = 4, f^-1(c) = 2, f^-1(d) = 1
+
+2. Find f ◦ g and g ◦ f where f(x) = x 2 + 1 and g(x) = x + 2, are functions from R to R. 
+
+f o g (x) = (x+2)^2 + 1
+g o f (x) = (x^2 + 1) + 2
+
+3. Suppose that the universal set is U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}. Express each of these sets with bit strings where the ith bit in the string is 1 if i is in the set and 0 otherwise. (a) {3, 4, 5} (b) {1, 3, 6, 10} (c) {2, 3, 4, 7, 8, 9} 
+
+{0011100000}
+{1010010001}
+{0111001110}
+
+
+
+4. Implement f ◦ g and g ◦ f in java.
+
+public static int f (int x) {
+  return x * x + 1;
+}
+
+public static int g (int x) {
+  return x + 2;
+}
+
+public static int fog(int x) {
+  return f(g(x));
+}
+
+public static int gof(int x) {
+  return g(f(x));
+}
+
