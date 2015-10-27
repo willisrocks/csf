@@ -168,7 +168,7 @@ public class h4 {
       i += 1;              
     }
     
-    return result;
+    return result; // nthPerfect(4) return 8128
   }
   
 //---------------------------------
@@ -209,7 +209,7 @@ public class h4 {
         System.out.println(i + " " + n + "," + newNum);
         i += 1;
       }  
-    }       
+    } // nthAmicablePair(2) returns 1 220, 284 and 2 1184,1210      
     
   }
 //---------------------------------
