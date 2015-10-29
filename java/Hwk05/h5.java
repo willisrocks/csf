@@ -204,21 +204,20 @@ public class h5 {
   public static boolean isPrime(int x) {
     boolean result = true;
     
-    // primes must be larger than 1
-    if (x <= 1) {
+    // primes must be larger than 1 and 2 is
+    // the only even prime
+    if (x <= 1 || (x % 2 == 0 && (x > 2))) {
       result = false;
-    }
-    
-    // we only have to check for divisors
-    // from 2 to the sqaure root of x
-    for (int i=2;i<=mySqrt(x);i++) {
-      
-      // if x has a divisor, it's not prime
-      if (myMod(x, i) == 0) {
-        result = false;
-      }
-      
-    }
+    } else {
+      // we only have to check for odd divisors
+      // from 3 to the sqaure root of x
+      for (int i=3;i<=mySqrt(x)&&result;i+=2) {
+        // if x has a divisor, it's not prime
+        if (myMod(x, i) == 0) {
+          result = false;
+        }
+      } // end for loop
+    } // end else
     
     return result;
   } // end isPrime()
