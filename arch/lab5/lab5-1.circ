@@ -12,7 +12,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
   <lib desc="#Arithmetic" name="3"/>
-  <lib desc="#Memory" name="4"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
   <lib desc="#I/O" name="5"/>
   <lib desc="#Base" name="6">
     <tool name="Text Tool">
@@ -62,8 +68,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelfont" val="SansSerif plain 12"/>
     <wire from="(580,200)" to="(600,200)"/>
     <wire from="(400,480)" to="(430,480)"/>
+    <wire from="(670,210)" to="(670,270)"/>
     <wire from="(330,490)" to="(370,490)"/>
-    <wire from="(210,340)" to="(390,340)"/>
     <wire from="(580,230)" to="(770,230)"/>
     <wire from="(490,250)" to="(490,590)"/>
     <wire from="(170,100)" to="(700,100)"/>
@@ -72,25 +78,23 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(580,140)" to="(580,180)"/>
     <wire from="(430,240)" to="(430,480)"/>
     <wire from="(650,200)" to="(660,200)"/>
-    <wire from="(210,250)" to="(390,250)"/>
     <wire from="(760,250)" to="(770,250)"/>
     <wire from="(210,340)" to="(210,430)"/>
     <wire from="(460,270)" to="(460,530)"/>
     <wire from="(700,220)" to="(840,220)"/>
     <wire from="(290,310)" to="(370,310)"/>
+    <wire from="(380,320)" to="(380,340)"/>
     <wire from="(580,140)" to="(890,140)"/>
     <wire from="(170,390)" to="(370,390)"/>
     <wire from="(700,190)" to="(700,220)"/>
-    <wire from="(210,430)" to="(390,430)"/>
-    <wire from="(210,530)" to="(390,530)"/>
     <wire from="(270,220)" to="(270,590)"/>
     <wire from="(210,250)" to="(210,340)"/>
+    <wire from="(460,270)" to="(670,270)"/>
     <wire from="(810,240)" to="(840,240)"/>
     <wire from="(650,200)" to="(650,590)"/>
     <wire from="(210,430)" to="(210,530)"/>
     <wire from="(690,190)" to="(700,190)"/>
     <wire from="(730,190)" to="(860,190)"/>
-    <wire from="(390,500)" to="(390,530)"/>
     <wire from="(580,180)" to="(600,180)"/>
     <wire from="(410,220)" to="(470,220)"/>
     <wire from="(730,300)" to="(730,310)"/>
@@ -99,40 +103,42 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(400,210)" to="(470,210)"/>
     <wire from="(420,230)" to="(470,230)"/>
     <wire from="(610,210)" to="(610,590)"/>
-    <wire from="(390,230)" to="(390,250)"/>
     <wire from="(270,220)" to="(370,220)"/>
     <wire from="(730,330)" to="(730,340)"/>
     <wire from="(730,360)" to="(730,590)"/>
     <wire from="(170,100)" to="(170,210)"/>
     <wire from="(730,290)" to="(730,300)"/>
     <wire from="(750,330)" to="(760,330)"/>
+    <wire from="(380,530)" to="(460,530)"/>
     <wire from="(730,350)" to="(730,360)"/>
+    <wire from="(380,500)" to="(380,530)"/>
     <wire from="(170,300)" to="(170,390)"/>
     <wire from="(310,400)" to="(310,590)"/>
-    <wire from="(680,210)" to="(680,270)"/>
     <wire from="(170,390)" to="(170,480)"/>
     <wire from="(170,210)" to="(370,210)"/>
     <wire from="(580,200)" to="(580,230)"/>
+    <wire from="(210,430)" to="(380,430)"/>
+    <wire from="(380,410)" to="(380,430)"/>
     <wire from="(730,320)" to="(730,330)"/>
-    <wire from="(390,320)" to="(390,340)"/>
     <wire from="(730,190)" to="(730,290)"/>
     <wire from="(410,220)" to="(410,300)"/>
-    <wire from="(460,270)" to="(680,270)"/>
     <wire from="(400,390)" to="(420,390)"/>
-    <wire from="(390,530)" to="(460,530)"/>
+    <wire from="(380,230)" to="(380,250)"/>
     <wire from="(700,100)" to="(700,190)"/>
     <wire from="(760,250)" to="(760,330)"/>
     <wire from="(730,340)" to="(730,350)"/>
     <wire from="(210,530)" to="(210,590)"/>
     <wire from="(730,310)" to="(730,320)"/>
+    <wire from="(210,530)" to="(380,530)"/>
     <wire from="(510,230)" to="(580,230)"/>
-    <wire from="(390,410)" to="(390,430)"/>
     <wire from="(430,240)" to="(470,240)"/>
     <wire from="(170,300)" to="(370,300)"/>
     <wire from="(400,300)" to="(410,300)"/>
     <wire from="(890,140)" to="(890,230)"/>
     <wire from="(860,190)" to="(860,210)"/>
     <wire from="(170,480)" to="(370,480)"/>
+    <wire from="(210,340)" to="(380,340)"/>
+    <wire from="(210,250)" to="(380,250)"/>
     <wire from="(290,310)" to="(290,590)"/>
     <wire from="(170,210)" to="(170,300)"/>
     <wire from="(420,230)" to="(420,390)"/>
@@ -149,6 +155,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="north"/>
       <a name="tristate" val="false"/>
     </comp>
+    <comp lib="6" loc="(386,454)" name="Text">
+      <a name="text" val="D reg"/>
+    </comp>
     <comp lib="0" loc="(270,590)" name="Pin">
       <a name="facing" val="north"/>
       <a name="tristate" val="false"/>
@@ -156,9 +165,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(610,590)" name="Pin">
       <a name="facing" val="north"/>
       <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="6" loc="(384,447)" name="Text">
-      <a name="text" val="D reg"/>
     </comp>
     <comp lib="6" loc="(490,623)" name="Text">
       <a name="text" val="Rmux"/>
@@ -181,9 +187,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(731,624)" name="Text">
       <a name="text" val="Sub"/>
     </comp>
-    <comp lib="6" loc="(384,357)" name="Text">
-      <a name="text" val="C reg"/>
-    </comp>
     <comp lib="4" loc="(400,480)" name="Register"/>
     <comp lib="2" loc="(630,190)" name="Multiplexer">
       <a name="width" val="8"/>
@@ -200,6 +203,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </comp>
     <comp lib="4" loc="(690,190)" name="Register"/>
     <comp lib="4" loc="(400,210)" name="Register"/>
+    <comp lib="6" loc="(383,361)" name="Text">
+      <a name="text" val="C reg"/>
+    </comp>
     <comp lib="6" loc="(610,624)" name="Text">
       <a name="text" val="Dmux"/>
     </comp>
