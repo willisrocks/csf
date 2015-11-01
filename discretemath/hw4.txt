@@ -8,49 +8,94 @@ Section 2.3
 
 2. Determine whether f is a function from Z to R if
 a) f(n)=±n.
-b) f(n)=√n2 +1.
-c) f(n)=1/(n2−4).
+
+No. More than one image +n and -n.
+
+b) f(n)=√n^2 +1.
+
+Yes. Because you square n (and add one), you will always be taking the square root of a positive number.
+
+c) f(n)=1/(n^2−4).
+
+No. No image for n=2 or n=-2.
 
 4. Find the domain and range of these functions. Note that in each case, to find the domain, determine the set of elements assigned values by the function.
-a) the function that assigns to each nonnegative integer
-its last digit
-b) the function that assigns the next largest integer to a
-positive integer
-c) the function that assigns to a bit string the number of
-one bits in the string
-d) the function that assigns to a bit string the number of
-bits in the string
+
+a) the function that assigns to each nonnegative integer its last digit
+
+Domain: {0,1,2,3,...}
+Range: {0,1,2,3,4,5,6,7,8,9}
+
+b) the function that assigns the next largest integer to a positive integer
+
+Domain: {1,2,3,...}
+Range: {2,3,4,5...}
+
+c) the function that assigns to a bit string the number of one bits in the string
+
+Domain: U{0,1} * d, where d is the length of the bit string
+Range: {0,1,2,3...}
+
+d) the function that assigns to a bit string the number of bits in the string
+
+Domain: U{0,1} * d, where d is the length of the bit string
+Range: {1,2,3...}
 
 6. Find the domain and range of these functions.
-a) the function that assigns to each pair of positive inte-
-gers the first integer of the pair
+
+a) the function that assigns to each pair of positive integers the first integer of the pair
+
+Domain: {1,2,3...}
+Range: {1,2,3...}
+
 b) the function that assigns to each positive integer its largest decimal digit
+
+Domain: {1,2,3...}
+Range: {0,1,2,3,4,5,6,7,8,9}
+
 c) the function that assigns to a bit string the number of ones minus the number of zeros in the string
+
+Domain: U{0,1} * d, where d is the length of the bit string
+Range: {z,...}
+
 d) the function that assigns to each positive integer the largest integer not exceeding the square root of the integer
+
+Domain: {1,2,3...}
+Range: {z,...}
+
 e) the function that assigns to a bit string the longest string of ones in the string
 
+Domain: U{0,1} * d, where d is the length of the bit string
+Range: {0,1,2,...}
+
 8. Find these values
-a) ⌊1.1⌋
-b) ⌈1.1⌉
-c) ⌊−0.1⌋
-d) ⌈−0.1⌉
-e) ⌈2.99⌉
-f ) ⌈−2.99⌉
-g)⌊1/2 + ⌈1/2⌉⌉
-h) ⌈⌊1/2⌋+⌈1/2⌉+ 1/2⌉
+a) ⌊1.1⌋ - 1
+b) ⌈1.1⌉ - 2
+c) ⌊−0.1⌋ - -1
+d) ⌈−0.1⌉ - 0
+e) ⌈2.99⌉ - 3
+f ) ⌈−2.99⌉ -2
+g)⌊1/2 + ⌈1/2⌉⌉ - 1
+h) ⌈⌊1/2⌋+⌈1/2⌉+ 1/2⌉ - 2
 
 12. Determine whether each of these functions from Z to Z is one-to-one.
 
-a) f(n)=n − 1
-b) f(n)=n^2 + 1
-c) f(n) = n^3
-d) f(n) = ⌈n/2⌉
+a) f(n)=n − 1 - Yes
+b) f(n)=n^2 + 1 - No, (-n)^2 == n^2
+c) f(n) = n^3 - Yes
+d) f(n) = ⌈n/2⌉ - No
 
 33. Suppose that g is a function from A to B and f is a function from B to C .
+
 a) Show that if both f and g are one-to-one functions, then f ◦ g is also one-to-one.
 
+f(g(x)) = f(g(y))
+x = y
+
 40. Let f be a function from the set A to the set B. Let S and T be subsets of A. Show that
+
 b) f(S∩T)⊆f(S)∩f(T).
+
 
 =============
 Section 2.4
@@ -58,38 +103,60 @@ Section 2.4
 
 4. What are the terms a0, a1, a2, and a3 of the sequence {an},
 where an equals
-a) (−2)^n ? b) 3? c)7+4^n? d)2^n+(−2)^n?
+(-2)^0 = 1
+(-2)^1 = -2
+(-2)^2 = 4
+(-2)^3 = -8
 
 10. Find the first six terms of the sequence defined by each
 of these recurrence relations and initial conditions.
-b) an =an−1 −an−2,a0 =2,a1 =−1 
+
+b) an =an−1 −an−2,a0 =2,a1 =−1
+
+{2,-1,-3,-2,1,3}
+
 c)an=3an2−1,a0=1
+
+{1,3,27,2187,14348907,617673396283947}
 
 20. Assume that the population of the world in 2010 was 6.9
 billion and is growing at the rate of 1.1% a year.
-a) Set up a recurrence relation for the population of the
-world n years after 2010.
-b) Find an explicit formula for the population of the
-world n years after 2010.
+
+a) Set up a recurrence relation for the population of the world n years after 2010.
+
+(1.011) * P(n-1), P(0) = 6.9
+
+b) Find an explicit formula for the population of the world n years after 2010.
+
+(1.011)^n * 6.9
+
 c) What will the population of the world be in 2030?
+
+About 8.6 billion people
+
 
 ================
 Section 2.5
 ================
 
 2. Determine whether each of these sets is finite, countably infinite, or uncountable. For those that are countably in- finite, exhibit a one-to-one correspondence between the set of positive integers and that set.
-a) theintegersgreaterthan10
-b) the odd negative integers
-c) the integers with absolute value less than 1,000,000
-d) the real numbers between 0 and 2
-e) thesetA×Z+ whereA={2,3}
-f) theintegersthataremultiplesof10
+a) Infinite. f(x) = 10 + x
+b) Infinite. f(x) = -2x - 1
+c) Finite
+d) Uncountable.
+e) f(x) = (2, n) if x = 2n -1
+        = (3, n) if x = 2n
 
-4. Determine whether each of these sets is countable or un-
-countable. For those that are countably infinite, exhibit a one-to-one correspondence between the set of positive integers and that set.
-a) integers not divisible by 3
-b) integers divisible by 5 but not by 7
-c) the real numbers with decimal representations consisting of all 1s
-d) the real numbers with decimal representations of all 1s or 9s
+f) f(x) = 10(n - 1) if x = 2n - 1
+        = -10n      if x = 2n
+
+4. Determine whether each of these sets is countable or uncountable. For those that are countably infinite, exhibit a one-to-one correspondence between the set of positive integers and that set.
+
+a) Countable
+b) Countable
+c) Countable
+d) Uncountable
 
 8. Show that a countably infinite number of guests arriving at Hilbert’s fully occupied Grand Hotel can be given rooms without evicting any current guest.
+
+
