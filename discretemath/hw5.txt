@@ -1,0 +1,83 @@
+William "Chris" Fenton
+CSF - Discrete Math
+HW5
+
+===========
+Section 1.6
+===========
+
+2. Find the argument form for the following argument and determine whether it is valid. Can we conclude that the conclusion is true if the premises are true? 
+
+If George does not have eight legs, then he is not a spider.
+George is a spider.
+------------------------
+∴ George has eight legs.
+
+
+
+4. What rule of inference is used in each of these arguments?
+
+a) Kangaroos live in Australia and are marsupials. Therefore, kangaroos are marsupials.
+
+b) It is either hotter than 100 degrees today or the pollution is dangerous. It is less than 100 degrees outside today. Therefore, the pollution is dangerous.
+
+c) Linda is an excellent swimmer. If Linda is an excellent swimmer, then she canwork as a lifeguard. Therefore, Linda can work as a lifeguard.
+
+d) Steve will work at a computer company this summer. Therefore, this summer Steve will work at a computer company or he will be a beach bum.
+
+e) If I work all night on this homework, then I can answer all the exercises. If I answer all the exercises, I will understand the material. Therefore, if I work all night on this homework, then I will understand the material.
+
+
+
+11. Show that the argument form with premises p1, p2, . . . , pn and conclusion q → r is valid if the argument form with premises p1, p2, . . . , pn, q, and conclusion r is valid.
+
+
+
+12. Show that the argument form with premises (p ∧ t) → (r ∨ s), q → (u ∧ t), u → p, and ¬s and conclusion q → r is valid by first using Exercise 11 and then using rules of inference from Table 1.
+
+
+
+22. Which rules of inference are used to establish the conclusion of Lewis Carroll’s argument described in Example 27 of Section 1.4?
+
+
+
+24. Identify the error or errors in this argument that supposedly shows that if ∀(P (x) ∨ Q(x)) is true then ∀P(x) ∨ ∀Q(x) is true.
+
+1. ∀(P (x) ∨ Q(x)) Premise
+2. P(c) ∨ Q(c) Universal instantiation from (1)
+3. P(c) Simplification from (2)
+4. ∀P(x) Universal generalization from (3)
+5. Q(c) Simplification from (2)
+6. ∀Q(x) Universal generalization from (5)
+7. ∀(P (x) ∨ ∀Q(x)) Conjunction from (4) and (6)
+
+
+
+32. Show that the equivalence p ∧¬p ≡ F can be derived using resolution together with the fact that a conditional statement with a false hypothesis is true. [Hint: let q = r = F in resolution.]
+
+
+
+33. Use resolution to show that the compound proposition (p ∨ q) ∧ (¬p ∨ q) ∧ (p ∨¬q) ∧ (¬p ∨¬q) is not satisfiable.
+
+
+
+===========
+Section 2.4
+===========
+
+
+32. Find the value of each of these sums.
+
+
+
+34. Compute each of these double sums.
+
+
+35.
+
+
+36.
+
+
+39.
+
