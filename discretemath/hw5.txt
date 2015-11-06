@@ -13,33 +13,56 @@ George is a spider.
 ------------------------
 ∴ George has eight legs.
 
+P = "George does not have eight legs", q = "George is not a spider"
+P -> q
+!q  // Modus tollens
+------
+! P
 
+True
 
 4. What rule of inference is used in each of these arguments?
 
-a) Kangaroos live in Australia and are marsupials. Therefore, kangaroos are marsupials.
-
-b) It is either hotter than 100 degrees today or the pollution is dangerous. It is less than 100 degrees outside today. Therefore, the pollution is dangerous.
-
-c) Linda is an excellent swimmer. If Linda is an excellent swimmer, then she canwork as a lifeguard. Therefore, Linda can work as a lifeguard.
-
-d) Steve will work at a computer company this summer. Therefore, this summer Steve will work at a computer company or he will be a beach bum.
-
-e) If I work all night on this homework, then I can answer all the exercises. If I answer all the exercises, I will understand the material. Therefore, if I work all night on this homework, then I will understand the material.
-
+a) Simplification
+b) Disjunctive syllogism
+c) Modus ponens
+d) Addition
+e) Hypothetical syllogism
 
 
 11. Show that the argument form with premises p1, p2, . . . , pn and conclusion q → r is valid if the argument form with premises p1, p2, . . . , pn, q, and conclusion r is valid.
 
+When (p1,p2,...,pn)->q is a tautology we have a valid argument. If the argument is true, the conclusion is true.
 
 
 12. Show that the argument form with premises (p ∧ t) → (r ∨ s), q → (u ∧ t), u → p, and ¬s and conclusion q → r is valid by first using Exercise 11 and then using rules of inference from Table 1.
 
+(p ^ t) -> (r V s)  1
+q -> (u ^ t)        2
+u -> p              3
+!s                  4
+------
+q -> r              5
+
+(p ^ t) -> p 	// simplification from 1
+(r V s) and !s -> r // disjunctive syloogism from 1 and 4
+(u ^ t) -> u // simplification from 2
+q -> u and u ->p -> q -> p // hypthetical syllogism from 2 and 3
+(p ^ t) -> t // 1 from simplification
+t -> r // 1 from 4
+q -> t // 2 from simplification
+q -> r // from hypothetical syllogism
 
 
 22. Which rules of inference are used to establish the conclusion of Lewis Carroll’s argument described in Example 27 of Section 1.4?
 
+∀x(P(x) -> S(x))
+!∃(Q(x) ^ R(x))
+∀x(!R(x) -> !S(x))
+-----------------
+∀x(P(x) -> !Q(x)) 
 
+Hypothetical syllogism and resolution.
 
 24. Identify the error or errors in this argument that supposedly shows that if ∀(P (x) ∨ Q(x)) is true then ∀P(x) ∨ ∀Q(x) is true.
 
