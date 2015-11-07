@@ -1,0 +1,181 @@
+William "Chris" Fenton
+CSF - Discrete Math
+HW5
+
+===========
+Section 1.6
+===========
+
+2. Find the argument form for the following argument and determine whether it is valid. Can we conclude that the conclusion is true if the premises are true?
+
+If George does not have eight legs, then he is not a spider.
+George is a spider.
+------------------------
+∴ George has eight legs.
+
+P = "George does not have eight legs", q = "George is not a spider"
+P -> q
+!q  // Modus tollens
+------
+! P
+
+True
+
+4. What rule of inference is used in each of these arguments?
+
+a) Simplification
+b) Disjunctive syllogism
+c) Modus ponens
+d) Addition
+e) Hypothetical syllogism
+
+
+11. Show that the argument form with premises p1, p2, . . . , pn and conclusion q → r is valid if the argument form with premises p1, p2, . . . , pn, q, and conclusion r is valid.
+
+When (p1,p2,...,pn)->q is a tautology we have a valid argument. If the argument is true, the conclusion is true.
+
+
+12. Show that the argument form with premises (p ∧ t) → (r ∨ s), q → (u ∧ t), u → p, and ¬s and conclusion q → r is valid by first using Exercise 11 and then using rules of inference from Table 1.
+
+(p ^ t) -> (r V s)  1
+q -> (u ^ t)        2
+u -> p              3
+!s                  4
+------
+q -> r              5
+
+(p ^ t) -> p 	// simplification from 1
+(r V s) and !s -> r // disjunctive syloogism from 1 and 4
+(u ^ t) -> u // simplification from 2
+q -> u and u ->p -> q -> p // hypthetical syllogism from 2 and 3
+(p ^ t) -> t // 1 from simplification
+t -> r // 1 from 4
+q -> t // 2 from simplification
+q -> r // from hypothetical syllogism
+
+
+22. Which rules of inference are used to establish the conclusion of Lewis Carroll’s argument described in Example 27 of Section 1.4?
+
+∀x(P(x) -> S(x))
+!∃(Q(x) ^ R(x))
+∀x(!R(x) -> !S(x))
+-----------------
+∀x(P(x) -> !Q(x))
+
+Hypothetical syllogism and resolution.
+
+24. Identify the error or errors in this argument that supposedly shows that if ∀(P (x) ∨ Q(x)) is true then ∀P(x) ∨ ∀Q(x) is true.
+
+1. ∀(P (x) ∨ Q(x)) Premise
+2. P(c) ∨ Q(c) Universal instantiation from (1)
+3. P(c) Simplification from (2) // Can't simplify with an OR like you can with an AND
+4. ∀P(x) Universal generalization from (3) // Incorrect as well
+5. Q(c) Simplification from (2) // Same error as 3
+6. ∀Q(x) Universal generalization from (5) // Same error as 4
+7. ∀(P (x) ∨ ∀Q(x)) Conjunction from (4) and (6) // Incorrect as well from 4 and 6
+
+
+
+32. Show that the equivalence p ∧¬p ≡ F can be derived using resolution together with the fact that a conditional statement with a false hypothesis is true. [Hint: let q = r = F in resolution.]
+
+p v q
+!p v r
+------
+q v r     // resolution
+(p v q) ^ (!p v r) -> (q v r)   // rewritten using implication
+
+q v q == p v F    // inserting false hypothesis
+p v F == p        // identity laws
+!p v r == !p v F  // inserting false hypothesis
+!p v F == !p      // identity laws
+q v r == F v F    // inserting false hypothesis
+F v F == F        // identity laws
+p ^ !p -> F       // substituting simplified forms back into original implication from resolution
+
+
+33. Use resolution to show that the compound proposition (p ∨ q) ∧ (¬p ∨ q) ∧ (p ∨¬q) ∧ (¬p ∨¬q) is not satisfiable.
+
+p v q
+!p v q
+------
+q v q   // resolution
+
+p v !q
+!p v !q
+-------
+!q v !q // resolution
+
+(q v q) ^ (!q v !q)  // contradiction
+
+
+
+===========
+Section 2.4
+===========
+
+
+32. Find the value of each of these sums.
+
+public static int sum(int n) {
+    int result = 0;
+
+    for (int j=0; j<=8; j++) {
+      result += <expression>;
+    }
+    return result;
+  }
+
+a) 10
+b) 9330
+c) 21215
+d) 511
+
+34. Compute each of these double sums.
+
+public static int doubleSum(int n, int k) {
+    int result = 0;
+
+    for (int i=1; i <= n; i++) {
+      for (int j=1; j <= k; j++) {
+        result += <expression>;
+      }
+    }
+    return result;
+  }
+
+a) 3
+b) 78
+c) 9
+d) 180
+
+35.
+
+(a1 - a0) + (a2 -a1) + ... + (a(n-1) - a(n-2)) + (a(n) - a(n-1))
+Everything except the -a0 and the a(n) cancel out leaving a(n) - a(0)
+
+36.
+
+Let Sigma = S(k) since I can't really type that here
+1/(k(k+1)) = 1/k - 1/(k+1)
+a(k) = 1/k
+a(k+1) = 1/(k+1)
+S(k) = a(k) - a(k+1)
+-S(k) = a(k+1) - a(k)
+-S(k) = a(k+1) - a(k+1-1)
+-S(k) = a(n+1) - a(1)
+S(k) = a(1) - a(n+1)
+
+a(k) = 1/k
+a(1) = 1/1 = 1
+a(n+1) = 1/(n+1)
+
+S(k) = 1 - 1/(n+1)
+S(k) = (n+1-1)/(n+1+
+S(k) = n/(n+1)
+
+39.
+
+(n(n+1)/2) where k = 1
+Sum of k with k=100 and n=200 can be rewritten as
+(Sum of k with k=1 and n=200) - (Sum of k with k=1 and n=99)
+200*201/2 - 99*100/2 = 15150
