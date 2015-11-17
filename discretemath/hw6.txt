@@ -1,0 +1,235 @@
+William "Chris" Fenton
+CSF - Discrete Math
+HW6
+
+===========
+Section 4.1
+===========
+
+6.
+
+(1) If a divides b, b = a * c  // from the definition of division
+(2) Suppose integer s = c/a
+(3) Suppose integer t = d/b
+(4) Then s * t = c * d / a * b
+(5) a * b divides c * d
+
+10.
+
+(a) q = 5, r = 4
+(b) q = 37, r = 0
+(c) q = -6, r = 9 -> q = -7, r = 10
+(d) q = 0, r = -1 -> q = 0, r = 22
+(e) q = -23, r = -1 -> q = -24, r = -86
+(f) q = 0, r = 0
+(g) q = 1233, r = 334
+(h) q = 0, r = -100 -> q = -1, r = 1
+
+11.
+
+(a) (11 + 80) mod 12 = 7 * 12 + 7 -> 7:00
+
+38.
+
+(1) n = 2k  // Definition of even number
+(2) n = 2k + 1 /// Definition of odd number
+(3) n^2 = 4k^2  // Even numbers, From (1)
+(4) 4k^2 (mod 4) = 0 // 4 is a factor of k, so r is 0
+(5) n^2 = 4k^2 + 4k + 1  // Odd numbers, From (2)
+(6) n^2 = 4(k^2 + k) + 1 // Factor out the 4
+(7) a = dq + r  // Divison alogrithm
+(7) 4(k^2 + k) + 1 (mod 4) = 1
+
+39.
+
+(1) Sum of 2 squares (mod 4) = 0 or 1
+(2) 4k + 3 (mod 4)
+(3) 4k(mod 4) + 3(mod 4) = 0 + 3  // 3 != (0 | 1)
+
+
+===========
+Section 4.2
+===========
+
+2.
+
+(b) 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0
+1111111111
+
+7.
+
+(a) 1000 0000 1110
+
+
+2.
+
+(b) 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0
+1111111111
+
+7.
+
+(a) 1000 0000 1110
+
+
+
+
+2.
+
+(b) 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0
+1111111111
+
+7.
+
+(a) 1000 0000 1110
+
+
+
+
+2.
+
+(b) 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0
+1111111111
+
+7.
+
+(a) 1000 0000 1110
+
+
+
+
+2.
+
+(b) 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0
+1111111111
+
+7.
+
+(a) 1000 0000 1110
+
+
+
+
+2.
+
+(b) 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0
+1111111111
+
+7.
+
+(a) 1000 0000 1110
+
+
+
+
+2.
+
+(b) 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0
+1111111111
+
+7.
+
+(a) 1000 0000 1110
+
+
+
+
+2.
+
+(b) 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0
+1111111111
+
+7.
+
+(a) 1000 0000 1110
+
+
+
+
+2.
+
+(b) 2^9 + 2^8 + 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0
+1111111111
+
+7.
+
+(a) 1000 0000 1110
+
+12.
+
+1863
+
+20.
+
+Since 2^6 = 64, you need 6 bits for base64. Convert the binary number into its 6bit expansion then convert the 2bit number into its base64 representation. To convert back to binary, reverse the process.
+
+To convert octal to base64, convert from octal to binary, then from binary to base64. To go from base64 to octal, convert to binary then to octal.
+
+21.
+
+(a) 10111110, 10111110
+(b) 110101100, 1011000001110011
+
+31.
+
+40.
+
+(a) 22 = 010110
+(b) 31 = 011111
+(c) -7 = 111001
+(d) -19 = 101101
+
+41.
+
+(a) 11001 = 00111 = -7
+(b) 01101 = 10011 = 13
+(c) 10001 = 01111 = -15
+(d) 11111 = 00001 = -1
+
+
+===========
+Section 4.3
+===========
+
+2.
+
+(a) prime
+(b) prime
+(c) not prime (divides by 3)
+(d) prime
+(e) prime
+(f) prime
+
+4.
+
+(a) not prime (divides by 3)
+(b) not prime (divides by 3)
+(c) prime
+(d) not prime (divides by 11)
+(e) not prime (divides by 17)
+(f) not prime (divides by 29)
+
+14. 1, 5, 7, 11
+
+15. 1, 7, 11, 13, 17, 17, 19, 23, 29
+
+24.
+
+(a) 2^2 * 3^3 * 5^2
+(b) 2^1 * 3^1 * 11^1
+(c) 17^1
+(d) 1^1
+(e) 5^1
+(f) 2^1 * 3^1 * 5^1 * 7^1
+
+25.
+
+(a) 3^5 * 5^3
+
+26.
+
+(a) 2^5 * 3^3 * 5^5
+(b) 2^11 * 3^9 * 5 * 7 * 11 * 13 * 17^14
+(c) 17^17
+(d) 2^2 * 5^3 * 7 * 13
+(e) Nan
+(f) 2 * 3 * 5 * 7
