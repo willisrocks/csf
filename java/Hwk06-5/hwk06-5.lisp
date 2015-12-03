@@ -19,7 +19,7 @@
 ;;; The Blue Square
 (defun myremove (atm lst)
   (cond
-    ((null (last lst)) lst) ; base case
+    ((null lst) lst) ; base case
     ((equal atm (first lst)) (myremove atm (rest lst))) ; first element matches atm
     (t (cons (first lst) (myremove atm (rest lst))))) ; else add first element to recursive case
   )
@@ -29,11 +29,17 @@
   (cond
     ;;;((null lst) nil)
     ;;;((= (count-atoms lst) 3) lst)
-    ((null (cdr lst)) lst)
-    ;;((listp (first (rest lst))) (reccalc (first (rest lst))))
-    ;;((listp (rest (rest lst))) (reccalc (rest (rest lst))))
+    ;;((null (cdr lst)) lst)
+    ((not (listp (first (rest lst)))) lst)
+    ((not (listp (first (last lst)))) lst)
+   
 
-    (t (apply (first lst) (rest lst))))
+    ;((listp (first (rest lst))) (reccalc (first (rest lst))))
+    ;((listp (rest (rest lst))) (reccalc (rest (rest lst))))
+
+
+    ;(t (apply (reccalc(first lst)) (reccalc(rest lst)))))
+    (t (equal (first lst) '+) (+ (reccalc(first (rest lst))) (reccalc (first (last lst))))))
     ;;;(print lst)
   )
 
@@ -78,3 +84,117 @@
 ((atom lst) (list lst))
 (t (append (flatten (car lst))
 (flatten (cdr lst))))))
+(defun l () (load 'lab65.lisp))
+
+(defun testall ()
+(print 'TESTING-COUTELEMENTS)
+(test1)
+(print 'TESTING-MYREVERSE)
+(test2)
+(print 'TESTING-MYREMOVE)
+(test3)
+(print 'TESTING-RECCALC)
+(test4)
+(print 'TESTING-MEGAREVERSE)
+(test5)
+(print 'TESTING-MEGAREMOVE)
+(test6)
+
+(print 'TESTING-SANDR)
+(ec1)
+(print 'TESTING-FLATTEN)
+(ec2)
+'DONE
+)
+
+
+(defun test1 ()
+(if (= (countelements '(a b c d (e f) g)) 6) (print 1))
+(if (= (countelements ()) 0) (print 2))
+(if (= (countelements '(a)) 1) (print 3))
+(if (= (countelements '((x y) a)) 2) (print 4))
+(if (= (countelements '((((3))))) 1) (print 5))
+t
+)
+
+
+(defun test2 ()
+(if (equal (myreverse '(a b a b a a c d a)) '(A D C A A B A B A)) (print 1))
+(if (equal (myreverse '(a (b a) b a (a) c (d e) a)) '(A (D E) C (A) A B (B A) A)) (print 2))
+(if (equal (myreverse '(the cat)) '(CAT THE)) (print 3))
+(if (equal (myreverse NIL) NIL) (print 4))
+(if (equal (myreverse '(a)) '(A)) (print 5))
+t
+)
+
+(defun test3 ()
+(if (equal (myremove 'a '(A D C A A B A B A)) '(d c b b)) (print 1))
+(if (equal (myremove 'a '(A A)) NIL) (print 2))
+(if (equal (myremove 'a '(A D (C A A) B A B A)) '(d (c a a) b b)) (print 3))
+(if (equal (myremove 'a '(b c d)) '(b c d)) (print 4))
+(if (equal (myremove 'a ()) NIL) (print 5))
+t
+)
+
+(defun test4 ()
+(if (= (reccalc '(+ 2 3)) (+ 2 3)) (print 1))
+(if (= (reccalc '(+ (* 2 3) 4)) (+ (* 2 3) 4)) (print 2))
+(if (= (reccalc '(+ 2 (* 3 4))) (+ 2 (* 3 4))) (print 3))
+(if (= (reccalc '(+ (- 4 3) (* 3 4))) (+ (- 4 3) (* 3 4))) (print 4))
+(if (= (reccalc '(+ (* 3 (+ (* 3 (/ 4.0 2.0)) (* 2 (+ 1 2)))) (/ 6.0 2.0)))
+(+ (* 3 (+ (* 3 (/ 4.0 2.0)) (* 2 (+ 1 2)))) (/ 6.0 2.0)))
+(print 5))
+t
+)
+
+
+
+(defun test5 ()
+(if (equal (megareverse '(a b a b a a c d a)) '(A D C A A B A B A)) (print 1))
+(if (equal (megareverse '(a (b a) b a (a) c (d e) a)) '(A (e d) C (A) A B (a b) A)) (print 2))
+(if (equal (megareverse '(the (cat (in the hat)) went for (a walk))) '((walk a) for went ((hat the
+in) cat) the)) (print 3))
+(if (equal (megareverse NIL) NIL) (print 4))
+(if (equal (megareverse '(a ((((a b)))) c)) '(c ((((b a)))) a)) (print 5))
+t
+)
+
+
+
+(defun test6 ()
+(if (equal (megaremove 'a '(A D C A A B A B A)) '(d c b b)) (print 1))
+(if (equal (megaremove 'a '(A D (C A A) B A B A)) '(d (c) b b)) (print 2))
+(if (equal (megaremove 'a '(A D (C (((a b a) A A)) () (a) B A B A))) '(D (C (((b))) () () B
+B))) (print 3))
+(if (equal (myremove 'a ()) NIL) (print 4))
+(if (equal (megaremove 'a '((((a b a))))) '((((b))))) (print 5))
+t
+)
+
+
+(defun ec1 ()
+(if (equal (sandr '(A D C A A B A B A) '((a x))) '(x d c x x b x b x)) (print 1))
+(if (equal (sandr '(a (b a) b (a (b a b) c) (a) c (d e)) '((a x) (c y))) '(X (B X) B (X (B X B) Y) (X) Y
+(D E))) (print 2))
+(if (equal (sandr '(((((1))))) '((1 2))) '(((((2)))))) (print 3))
+(if (equal (sandr '(a (b a) b (a (b a b) c) (a) c (d e)) '((a x) (c y) (b z))) '(X (Z X) Z (X (Z X
+Z) Y) (X) Y (D E))) (print 4))
+(if (equal (sandr '(A D C A A B A B A) '()) '(A D C A A B A B A)) (print 5))
+t
+)
+
+(defun ec2 ()
+(if (equal (flatten '(a b a b a a c d a)) '(a b a b a a c d a)) (print 1))
+(if (equal (flatten '(a (b a) b a (a) c (d e) a)) '(A B A B A A C D E A)) (print 2))
+(if (equal (flatten '(the (cat (in the hat)) went for (a walk))) '(THE CAT IN THE HAT WENT FOR A
+WALK)) (print 3))
+(if (equal (flatten NIL) NIL) (print 4))
+(if (equal (flatten '(a ((((a b)))) c)) '(a a b c)) (print 5))
+t
+)
+
+
+(defun fact (n)
+(cond
+((equal n 0) 1)
+(t (* n (fact (- n 1))))))
