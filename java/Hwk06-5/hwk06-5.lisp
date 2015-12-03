@@ -27,17 +27,20 @@
 ;;; The Black Diamond
 (defun reccalc(lst)
   (cond
-    ((null lst) nil)
-    ((listp (first (rest lst))) (reccalc (first (rest lst))))
-    ((listp (rest (rest lst))) (reccalc (rest (rest lst))))
+    ;;;((null lst) nil)
+    ;;;((= (count-atoms lst) 3) lst)
+    ((null (cdr lst)) lst)
+    ;;((listp (first (rest lst))) (reccalc (first (rest lst))))
+    ;;((listp (rest (rest lst))) (reccalc (rest (rest lst))))
+
     (t (apply (first lst) (rest lst))))
-    (print lst)
+    ;;;(print lst)
   )
 
 (defun calc (lst)
   (cond
     ;((null (cdr lst)) lst)
-    ((= (count-atoms lst) 1) lst)
+    ((= (count-atoms lst) 3) lst)
     ((listp (first (rest lst))) (applycalc (first (rest lst))))
     ((listp (rest (rest lst))) (applycalc (rest (rest lst))))
     ;((listp (rest lst)) (apply (first (rest lst)) (calc (rest (rest lst)))))
