@@ -152,37 +152,150 @@ public class h7 {
   public static int[] rotateR(int[] x, int n) {
     int[] result={};
     result = new int[x.length];
-    print(x);
-    for (int i = 0; i <= x.length - 1; i++) {
-      //System.out.println(i + "  " + ((x.length - n)%x.length));
-      result[i] = x[((i + n )%x.length)];
-      //System.out.println(i + n);
+    int[] begin = new int[n];
+    int[] end = new int[x.length - n];
+    
+    // Fill begin array with the rotated items
+    for (int i = 0; i < n; i++) {
+      begin[i] = x[x.length - n + i];
     }
     
+    // Fill end array with the non-rotated items
+    for (int i = 0; i < x.length - n; i++) {
+      end[i] = x[i];
+    }
     
+    result = concat(begin, end); // Combine the final array
+    
+    //print(begin);
+    //print(end);
     
     return result;
   } // end rotateR()
   
   
   public static int mode(int[] x) {
-    return 0;
+    // clone
+    // sort
+    // count items
+    // find max count
+    // return max number
+    
+    int[] data = clone(x);
+    int[] uniques = unique(data);
+    int[] counts = {};
+    int result = 0, max = 0;
+    
+        
+    sort(data);
+    counts = new int[uniques.length];
+    
+    for (int i = 0; i <= counts.length - 1; i++) {
+      for (int j = 0; j <= data.length - 1; j++) {
+        if (data[j] == uniques[i]) {
+          counts[i]++;
+        }
+      }
+    }
+    
+    max = (max(counts));
+    
+    for (int i = 0; i <= uniques.length - 1; i++) {
+      if(counts[i] == max) {
+        result = uniques[i];
+        return result; // return early with the first mode
+      }
+    }
+    
+    return result;
   } // end mode()
   
-  public static int[] unique(int[] x) {
-    int[] result={};
+  public static int[] unique(int[] array) {
+    // returns a sorted copy of array with only the unique items
+    int[] result={}, counts={};
+    boolean[] unique_indexes = {};
+    int[] x = clone(array);
+    int unique_count = 0;
     
+    sort(x);
+    
+    // Get the count of unique items
+    if (x.length > 0) unique_count++;
+    
+    for (int i = 1; i <= x.length - 1; i++) {
+      if(x[i-1] != x[i]) {
+        unique_count++;
+      }
+    }
+    
+    // Create arrays with right amount of items
+    result = new int[unique_count];
+    counts = new int[unique_count];
+    unique_indexes = new boolean[x.length];
+    
+    //result[0] = x[0]; // copy first item
+    unique_indexes[0] = true;
+    
+    // Fill unique_indexes values
+    for (int i = 1; i <= x.length - 1; i++) {
+      if(x[i-1] != x[i]) {
+        unique_indexes[i] = true;
+      }
+    }
+    
+    // Fill result array with unique values
+    int j = 0; // result counter
+    for (int i = 0; i <= unique_indexes.length - 1; i++) {
+      if(unique_indexes[i] == true) {
+        result[j] = x[i];
+        j++;
+      }
+    }
+   
     return result;
   } // end unique()
   
-  public static void mySort(int[] x) {
+  public static void mySort(int[] array) {
+    int[] result = new int[array.length];
+    int[] x = clone(array);
+    int max = 0;
     
+    
+    
+    for(int i = result.length - 1; i >= 0; i--) {
+      max = max(x);
+      System.out.println(i);
+      if(x[i] == max) {
+        result[i] = max;
+        x = arrayRemove(x, i);
+      }
+      //print(x);
+    }
+      print(result);
+//    for(int i = result.length - 1; i >= 0; i--) {
+//      array[i] = result[i];
+//    }
   } // end mysort()
   
   // --------------------------------------------------
   // --------------------------------------------------
   
   // HELPER METHODS
+  
+  public static int[] arrayRemove(int[] array, int index) {
+    int[] result = new int[array.length - 1];
+    for(int i = 0; i < index; i++) {
+      //System.out.println(array[i]);
+      result[i] = array[i];
+    }
+    //print(result);
+    for(int i = index + 1; i <= array.length - 1; i++) {
+      //System.out.println(array[i]);
+      result[i-1] = array[i];
+    }
+  
+    return result;
+  }
   
   /* make() creates a random integer array of arbitrary size
    * Paramaters: size, the size of the array

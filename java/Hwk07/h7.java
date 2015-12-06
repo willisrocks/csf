@@ -1,7 +1,7 @@
 /*
  *  File:           h7.java
  *  Author:         Chris Fenton
- *  Last modified:  12/3/2015
+ *  Last modified:  12/6/2015
  * 
  *  This class contains methods that work with
  * arrays.
@@ -98,7 +98,6 @@ public class h7 {
       if (x[i-1] > x[i]) {
         flag = false; // I would prefer to be hacky and return false here to save time
       }
-      
     }
     
     result = flag;
@@ -256,7 +255,20 @@ public class h7 {
   } // end unique()
   
   public static void mySort(int[] x) {
+    int temp = 0, low = 0;
     
+    for(int i = 0; i < x.length - 1; i++) {
+      low = i;
+      
+      for(int j = i + 1; j < x.length; j++) {
+        if(x[j] < x[low]) low = j;
+      }
+      
+      // swap elements
+      temp = x[low];
+      x[low] = x[i];
+      x[i] = temp;
+    }
   } // end mysort()
   
   // --------------------------------------------------
@@ -264,6 +276,7 @@ public class h7 {
   
   // HELPER METHODS
   
+    
   /* make() creates a random integer array of arbitrary size
    * Paramaters: size, the size of the array
    *             smallest, the smallest value wanted
