@@ -1,7 +1,7 @@
 /*
  *  File:           h7.java
  *  Author:         Chris Fenton
- *  Last modified:  12/6/2015
+ *  Last modified:  12/14/2015
  * 
  *  This class contains methods that work with
  * arrays.
@@ -149,25 +149,14 @@ public class h7 {
   } // end concat()
   
   public static int[] rotateR(int[] x, int n) {
+     
     int[] result={};
     result = new int[x.length];
-    int[] begin = new int[n];
-    int[] end = new int[x.length - n];
+    int len = x.length;
     
-    // Fill begin array with the rotated items
-    for (int i = 0; i < n; i++) {
-      begin[i] = x[x.length - n + i];
+    for (int i=0; i <= len - 1;i++) {
+      result[(n+i)%len] = x[i];
     }
-    
-    // Fill end array with the non-rotated items
-    for (int i = 0; i < x.length - n; i++) {
-      end[i] = x[i];
-    }
-    
-    result = concat(begin, end); // Combine the final array
-    
-    //print(begin);
-    //print(end);
     
     return result;
   } // end rotateR()
