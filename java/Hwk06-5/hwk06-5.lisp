@@ -44,6 +44,23 @@
 
   )
 
+;;; The mega-challenge
+(defun megareverse (lst)
+  (cond
+    ((atom lst) lst)
+    (t (append (megareverse (rest lst)) (list (megareverse (first lst)))))
+    )
+  )
+
+;;; The double dare-ya mega-challenge
+(defun megaremove (atm lst)
+  (cond
+    ((atom lst) lst)
+    ((equal atm (first lst)) (megaremove atm (rest lst)))
+    (t (cons (megaremove atm (first lst)) (megaremove atm (rest lst))))
+    )
+  )
+
 ;============================
 ;        Tests
 ;============================
