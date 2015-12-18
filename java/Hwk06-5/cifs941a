@@ -70,11 +70,21 @@
   )
 
 ;;; The victory lap
+;(defun flatten (L)
+;  (if (null L)
+;	        nil
+;			        (if (atom (first L))
+;					              (cons (first L) (flatten (rest L)))
+;								              (append (flatten (first L)) (flatten (rest L))))
 (defun flatten (lst)
   (cond
 	((null lst) nil)
-	((atom (first lst))(cons (first lst) (flatten (rest lst))))
-    (t (append (flatten (first lst)) (flatten (rest lst)))))
+	(cond
+	  ((atom (first lst)
+			 (cons (first lst) (flatten (rest lst)))
+			 (append (flatten (first lst)) (flatten (rest lst)))))
+	  )
+	)
   )
   
 ;;; Helpers
