@@ -11,7 +11,12 @@
 
 ;;; The Bunny Slope
 (defun countElements (lst)
-    (list-length lst)
+    (setq sum 1)
+    (cond
+      ((null lst) (setq sum '0))
+      ((atom lst) (setq sum '1))
+      ((+ 1 (countElements (cdr lst))))
+      )
   )
 
 ;;; The Green Circle
