@@ -1,12 +1,22 @@
 ;;; Hwk-6.5
 ;;; Chris Fenton
 
+;============================
+;        My Code
+;============================
+
+
 ;;; Helper to reload the REPL
 (defun l () (load 'hwk06-5.lisp))
 
 ;;; The Bunny Slope
 (defun countElements (lst)
-    (list-length lst)
+    (setq sum 1)
+    (cond
+      ((null lst) (setq sum '0))
+      ((atom lst) (setq sum '1))
+      ((+ 1 (countElements (cdr lst))))
+      )
   )
 
 ;;; The Green Circle
@@ -27,64 +37,63 @@
 ;;; The Black Diamond
 (defun reccalc(lst)
   (cond
-    ;;;((null lst) nil)
-    ;;;((= (count-atoms lst) 3) lst)
-    ;;((null (cdr lst)) lst)
-    ((not (listp (first (rest lst)))) lst)
-    ((not (listp (first (last lst)))) lst)
-   
+    ((atom lst) lst)
 
-    ;((listp (first (rest lst))) (reccalc (first (rest lst))))
-    ;((listp (rest (rest lst))) (reccalc (rest (rest lst))))
+    (t
+      (cond
+        ((equal (first lst) '+) (+ (reccalc (first (rest lst))) (reccalc (first (last lst)))))
+        ((equal (first lst) '-) (- (reccalc (first (rest lst))) (reccalc (first (last lst)))))
+        ((equal (first lst) '/) (/ (reccalc (first (rest lst))) (reccalc (first (last lst)))))
+        ((equal (first lst) '*) (* (reccalc (first (rest lst))) (reccalc (first (last lst)))))
+        )))
 
-
-    ;(t (apply (reccalc(first lst)) (reccalc(rest lst)))))
-    (t (equal (first lst) '+) (+ (reccalc(first (rest lst))) (reccalc (first (last lst))))))
-    ;;;(print lst)
   )
 
-(defun calc (lst)
+;;; The mega-challenge
+(defun megareverse (lst)
   (cond
-    ;((null (cdr lst)) lst)
-    ((= (count-atoms lst) 3) lst)
-    ((listp (first (rest lst))) (applycalc (first (rest lst))))
-    ((listp (rest (rest lst))) (applycalc (rest (rest lst))))
-    ;((listp (rest lst)) (apply (first (rest lst)) (calc (rest (rest lst)))))
-    ;((> (count-atoms lst) 2) (calc lst))
-    ;(t (cons (apply (calc (first lst)) (calc (rest lst))))))
-    ;(t (apply (first lst) (rest lst))))
-    ;((= (count-atoms lst) 3) (apply (first lst) (calc (rest lst)))))
-    (print lst)
-    ;(t (apply (first lst) (rest lst))))
-    (t (applycalc lst)))
+    ((atom lst) lst)
+    (t (append (megareverse (rest lst)) (list (megareverse (first lst)))))
     )
-
-(defun count-atoms (my-list)
-  (cond ((null my-list) 0)
-        ((atom my-list) 1)
-        (t (+ (count-atoms (car my-list))
-              (count-atoms (cdr my-list)))))
   )
 
-(defun applycalc (lst)
+;;; The double dare-ya mega-challenge
+(defun megaremove (atm lst)
   (cond
-    ((= (count-atoms lst) 3) (apply (first lst) (rest lst))))
+    ((atom lst) lst)
+    ((equal atm (first lst)) (megaremove atm (rest lst)))
+    (t (cons (megaremove atm (first lst)) (megaremove atm (rest lst))))
+    )
   )
 
-(defun mycalc (lst)
+;;; The super double dare-ya mega-challenge with cherry on top
+(defun sandr (tlst rlst)
   (cond
-    ;((null lst) nil)
-    ((atom lst) (list lst))
-    ((> (count-atoms lst) 3) (mycalc (append (second lst) (third lst))))
-    (t (apply (first lst) (rest lst))))
+    ((atom rlst) tlst)
+    (t (cons (repl (first (first rlst)) (first (rest (first rlst))) tlst) (sandr tlst (rest rlst))))
+    )
   )
 
+;;; The victory lap
 (defun flatten (lst)
-(cond ((null lst) nil)
-((atom lst) (list lst))
-(t (append (flatten (car lst))
-(flatten (cdr lst))))))
-(defun l () (load 'lab65.lisp))
+  (cond
+	((null lst) nil)
+	((atom (first lst))(cons (first lst) (flatten (rest lst))))
+    (t (append (flatten (first lst)) (flatten (rest lst)))))
+  )
+  
+;;; Helpers
+(defun repl (s r lst)
+  (cond
+	((atom lst) lst)
+	((not (equal s (first lst))) (repl s r (rest lst)))
+	(t (cons (setf (first lst) r) (repl s r (rest lst))))
+	)
+  )
+
+;============================
+;        Tests
+;============================
 
 (defun testall ()
 (print 'TESTING-COUTELEMENTS)
