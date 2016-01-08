@@ -1,0 +1,25 @@
+==================
+Chris Fenton
+CSF - Arch
+HW1
+==================
+
+4. How many different patterns could be stored in a 16-bit register? What is the largest value that could be stored as a (two’s complement) signed integer in such a register? What is the smallest value? How about the largest and smallest values that could be stored as unsigned integers?
+
+5. Convert the following 16-bit binary numbers into hexadecimal and signed decimal numbers (no, you don’t get to use a calculator!):
+• 1001110011101110
+• 1111111111111111
+• 0000000011111111
+• 0100100010000100
+• 1111111100000000
+• 1100101011111110
+
+9. Using a standard ASCII table (check the Internet or appendix E), what 4 hexadecimal bytes would represent the string “Fred”?
+
+10. What ASCII character string would correspond to the hexadecimal number 0x45617379?
+
+12. Why won’t executables created for aWindows Pentium IV run on a PowerPC-based Macintosh (without special software support)?
+
+13. What is the most important advantage of a virtual machine over a chip-based architecture?
+
+14. What is the most important disadvantage?
