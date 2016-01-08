@@ -6,17 +6,23 @@ HW1
 
 4. How many different patterns could be stored in a 16-bit register? What is the largest value that could be stored as a (two’s complement) signed integer in such a register? What is the smallest value? How about the largest and smallest values that could be stored as unsigned integers?
 
+2^16 possible values. The range of values in twos complement form is -2^k to 2^k - 1. For 16bits this is -2^15 to 2^15 - 1 (-32768:32767). For unsigned integers, the range is 0 to 2^16 - 1 (65535).
+
 5. Convert the following 16-bit binary numbers into hexadecimal and signed decimal numbers (no, you don’t get to use a calculator!):
-• 1001110011101110
-• 1111111111111111
-• 0000000011111111
-• 0100100010000100
-• 1111111100000000
-• 1100101011111110
+• 1001110011101110 - 0x9cee
+• 1111111111111111 - 0xffff
+• 0000000011111111 - 0x00ff
+• 0100100010000100 - 0x4884
+• 1111111100000000 - 0xff00
+• 1100101011111110 - 0xcafe
 
 9. Using a standard ASCII table (check the Internet or appendix E), what 4 hexadecimal bytes would represent the string “Fred”?
 
+0x46726564
+
 10. What ASCII character string would correspond to the hexadecimal number 0x45617379?
+
+Easy
 
 12. Why won’t executables created for a Windows Pentium IV run on a PowerPC-based Macintosh (without special software support)?
 
