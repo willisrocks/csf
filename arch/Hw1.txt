@@ -18,8 +18,14 @@ HW1
 
 10. What ASCII character string would correspond to the hexadecimal number 0x45617379?
 
-12. Why won’t executables created for aWindows Pentium IV run on a PowerPC-based Macintosh (without special software support)?
+12. Why won’t executables created for a Windows Pentium IV run on a PowerPC-based Macintosh (without special software support)?
+
+They don't use the proper instruction sets.
 
 13. What is the most important advantage of a virtual machine over a chip-based architecture?
 
+Portability. You don't have to worry about the final target architecture with a vitrual machine, as code compiled on the virtual machine can be easily ported to every architecture that the virtual machine can be installed on.
+
 14. What is the most important disadvantage?
+
+Performance. By adding another level of abstraction between your code and the hardware, you're adding extra overhead.
