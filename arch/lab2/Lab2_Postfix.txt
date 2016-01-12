@@ -1,0 +1,60 @@
+=================
+Chris Fenton
+CSF - Arch
+Lab 2
+=================
+
+2. Give a postfix expression for the infix expression a + b. Also give a postfix expression for the infix expression (a + b). Hint: In postfix notation for expressions you don't need parentheses. Draw the expression tree for a + b.
+
+a + b -> a b +
+(a + b) -> a b +
+   +
+  / \
+ a   b
+
+3. Give a postfix expression for computing the average of two numbers a and b.
+
+a b + 2 /
+
+4. Give a postfix expression for computing the average of three numbers, a, b, and c. Draw the expression tree.
+
+a b + c + 3 /
+
+      ÷
+     / \
+    +   3
+   / \
+  +   c
+ / \
+a   b
+
+5. Now give a postfix expression for computing the expression (a+b)*(c+d).
+
+a b + c d + *
+
+6. Translate the following postfix expression to infix: a b + c d - *. Draw the expression tree.
+
+(a + b) * (c - d)
+
+     *
+   /    \
+  +      -
+ / \    / \
+a   b  c   d
+
+7. Translate (but do not simplify) the following postfix expression to infix: a b - a + c d e * + / f * . Draw the expression tree.
+
+((a - b) + a) / (c + (d * e)) * f
+
+          *
+         / \
+        ÷   f
+       / \
+      /   \
+     /     \
+    +       +
+   / \     / \
+  -   a   *   c
+ / \     / \
+a   b   d   e
+
