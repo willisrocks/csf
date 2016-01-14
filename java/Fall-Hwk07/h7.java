@@ -11,6 +11,28 @@
 
 public class h7 {
   
+  // Main method, calls test()
+  //---------------------------------------------
+
+  public static void main(String[] args) {
+    testAll();
+  }
+
+  // testAll() calls unit tests for assigned methods
+  //---------------------------------------------
+
+  public static void testAll() {
+    h7t.isSorted();
+    h7t.replace();
+    h7t.median();
+    h7t.concat();
+    h7t.rotateR();
+    h7t.mode();
+    h7t.unique();
+    h7t.mySort();
+  }
+  // max() takes an int array and returns the max
+  // element
   //---------------------------------------------
   
   public static int max(int[] x) {
@@ -25,6 +47,8 @@ public class h7 {
     return max;
   } // end max()
   
+  // equal() takes 2 int arrays and returns a boolean
+  // value to indicate if the arrays are equivalent
   // --------------------------------------------------
   
   public static boolean equal(int[] x, int[] y) {
@@ -45,7 +69,9 @@ public class h7 {
     return eq;
   } // end max()
   
-// --------------------------------------------------
+  // mean() takes an int array and returns the aritmatic
+  // mean of the elements
+  // --------------------------------------------------
   
   public static double mean(int[] x) {
     double result = 0;
@@ -59,7 +85,8 @@ public class h7 {
     return result;
   } // end mean()
   
-// --------------------------------------------------
+  // test methods provided by Adam
+  // --------------------------------------------------
   
   public static void test (int x) {
     System.out.println(x);
@@ -73,7 +100,7 @@ public class h7 {
     System.out.println(x);
   }
   
-// --------------------------------------------------
+  // --------------------------------------------------
   
   public static void atest (int[] x) {
     print(x);
@@ -88,8 +115,10 @@ public class h7 {
   }
   
   // --------------------------------------------------
+
+  // isSorted() takes an int array and returns a
+  // boolean indicating if the array is sorted
   // --------------------------------------------------
-  
   
   public static boolean isSorted(int[] x) {
     boolean result=false, flag=true;
@@ -103,7 +132,14 @@ public class h7 {
     result = flag;
     return result;
   } // end isSorted()
+
+  // --------------------------------------------------
   
+  // replace() takes an int array and 2 ints x and r
+  // and replaces all occurences of s with r in the
+  // array
+  // --------------------------------------------------
+
   public static void replace(int[] x,int s, int r) {
     
     for (int i = 0; i <= x.length - 1; i++) {
@@ -114,6 +150,11 @@ public class h7 {
     
   } // end replace()
   
+  // --------------------------------------------------
+
+  // median() takes an int array and returns an int x
+  // where x is the median of the elements in the array
+  // --------------------------------------------------
   public static int median(int[] x) {
     int result = 0, median = 0;
     int[] data = h7.clone(x);
@@ -126,7 +167,13 @@ public class h7 {
     
   } // end median()
   
-  
+  // --------------------------------------------------
+
+  // concat() takes 2 int arrays x and y and returns
+  // and int array containing the concatenation of
+  // x and y
+  // --------------------------------------------------
+
   public static int[] concat(int[] x, int[] y) {
     int[] result={};
     int x_len = 0, y_len = 0;
@@ -148,6 +195,12 @@ public class h7 {
     return result;
   } // end concat()
   
+  // --------------------------------------------------
+  
+  // rotateR() takes an int array x and an int n
+  // and returns an int array that contains x
+  // circular shifted by n
+  // --------------------------------------------------
   public static int[] rotateR(int[] x, int n) {
      
     int[] result={};
@@ -161,7 +214,12 @@ public class h7 {
     return result;
   } // end rotateR()
   
+  // --------------------------------------------------
   
+  // mode() takes an int array and returns an int with
+  // the mode of the elements in the array
+  // --------------------------------------------------
+
   public static int mode(int[] x) {
     // clone
     // sort
@@ -174,7 +232,6 @@ public class h7 {
     int[] counts = {};
     int result = 0, max = 0;
     
-        
     sort(data);
     counts = new int[uniques.length];
     
@@ -198,6 +255,13 @@ public class h7 {
     return result;
   } // end mode()
   
+  // --------------------------------------------------
+
+  // unique() takes and int array and retruns an int
+  // array with only the unique items from the given
+  // array
+  // --------------------------------------------------
+
   public static int[] unique(int[] array) {
     // returns a sorted copy of array with only the unique items
     int[] result={}, counts={};
@@ -243,6 +307,12 @@ public class h7 {
     return result;
   } // end unique()
   
+  // --------------------------------------------------
+  
+  // mySort() takes an int array and performs an
+  // in-place sort on that array
+  // --------------------------------------------------
+
   public static void mySort(int[] x) {
     int temp = 0, low = 0;
     
@@ -352,5 +422,4 @@ public class h7 {
   
   //================================================= 
 } // end class hwk7
-
 
