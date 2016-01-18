@@ -1,0 +1,37 @@
+import junit.framework.TestCase;
+
+/**
+ * A JUnit test case class.
+ * Every method starting with the word "test" will be called when running
+ * the test with JUnit.
+ */
+public class h9t extends TestCase {
+  
+  /**
+   * A test method.
+   * (Replace "X" with a name describing the test.  You may write as
+   * many "testSomething" methods in this class as you wish, and each
+   * one will be called when running JUnit over this class.)
+   */
+  public void testGoodMagicSquare() {
+    int[][] magic_square = {{8,1,6},{3,5,7},{4,9,2}};
+    boolean actual = h9.detectMagic(magic_square);
+    
+    assertTrue("{{8,1,6},{3,5,7},{4,9,2}} should be true", actual);   
+  }
+  
+  public void testRectangle() {
+    int[][] rectangle = {{1,2},{2}};
+    boolean actual = h9.detectMagic(rectangle);
+    
+    assertFalse("Magic Square must be a rectangle", actual);
+  }
+  
+  public void testDuplicates() {
+    int[][] grid = h9.make(3, 3, 1, 1);
+    boolean actual = h9.detectMagic(grid);
+    
+    assertFalse("The array can't contain duplicates", actual);
+  }
+  
+}

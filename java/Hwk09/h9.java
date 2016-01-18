@@ -1,3 +1,9 @@
+//=================================================
+// -------------- Homework 09 ---------------------
+// -------------- Chris Fenton --------------------
+// -------------- 1/17/2016 -----------------------
+//=================================================
+
 public class h9 {
   
   // ==================================================
@@ -13,16 +19,23 @@ public class h9 {
     if (!(isSquare(x))) {
       return false;
     }
-        
+    
+    // exit early if x doesn't contain 1 : n^2
+    if (!(isConsecutive(x))) {
+      return false;
+    }
+    
     // get sum of rows, columns, and diags
     int[] diags = sumDiagonals(x);
     int[] rows = sumRows(x);
     int[] cols = sumColumns(x);
     int[][] sums = {diags, rows, cols};
     int test = diags[0]; // test any number agains the others
-
+    
+    // check that the sums match the magic number
     for (int i = 0; i < sums.length; i++) {
       for (int j = 0; j < sums[i].length; j++) {
+        // exit early if a sum doesn't match
         if (sums[i][j] != test) return false;
       }
     }
@@ -37,9 +50,34 @@ public class h9 {
   // ==================================================
   
   public static int[][] makeMagic(int n) {
-    int[][] result = {{}};
+    int[][] square = new int[n][n];
+    int mid = n / 2;
+    int y = 0, x = mid;
     
-    return result;
+    // ensure odd n
+    if (n % 2 == 0) return new int[0][0];
+    
+    // put 1 in the middle of the top row
+    square[y][x] = 1;
+    
+    for (int i=2; i <= (n*n); i++) {
+      int new_y = y;
+      int new_x = x;
+      // find diag pos
+      new_y = wrap(y-1,n);
+      new_x = wrap(x+1,n);
+      // check to see if new pos is taken
+      if (square[new_y][new_x] != 0) {
+        new_y = wrap(y+1,n);
+        new_x = x;
+      }
+      // place number
+      y = new_y;
+      x = new_x;
+      square[y][x] = i;
+    }
+    
+    return square;
   } // end makeMagic()
   
   
@@ -177,6 +215,113 @@ public class h9 {
     return result;
   } // end sumColumns()
   
+  // ==================================================
+  // isConsecutive() takes an 2d array
+  // and returns and a boolean to indicate 
+  // if each item in the arrays is order
+  // ==================================================
+  
+  public static boolean isConsecutive(int[][] x) {
+    boolean results = true;
     
+    // assume square
+    int len = x.length * x[0].length;
+    //int[] flat_array = new int[len];
+    int[] temp;
+    int[] flat = clone(x[0]);
+    
+    for (int i=2; i < x.length; i++) {
+      temp = concat(x[i-1],x[i]);
+      flat = concat(flat, temp);
+    }
+    
+    insertSort(flat);
+    
+    // check flat array for consecutive numbers
+    for (int i=0; i < flat.length; i++) {
+      if (flat[i] != (i + 1)) return false;
+    }
+    
+    return results;
+  } // end isConsecutive()
+  
+  
+  // ==================================================
+  // insertSort() takes an array
+  // and sorts it using the insertion sort 
+  // algorithm. we covered this in discrete math
+  // ==================================================
+  
+  public static void insertSort (int[] a) {
+    for (int i=1; i < a.length; i++) {
+      int temp = a[i];
+      int j;
+      for (j = i - 1; j >= 0 && temp < a[j]; j--) {
+        a[j+1] = a[j];
+      }
+      a[j+1] = temp;
+    }
+  } // end insertSort()
+  
+  // ==================================================
+  // clone() returns a copy of an integer array
+  // Paramaters: x, the array to be cloned
+  // Returns: An array that contains the same 
+  // integers as x
+  // ==================================================
+  
+  public static int[] clone(int[] x) {
+
+    int[] result;
+    int lp=0, len = x.length;
+
+    result = new int[len];
+
+    for(lp=0;(lp<len);lp++) {
+      result[lp]=x[lp];
+    } // end for
+
+    return result;
+  } // end clone()
+  
+  // ==================================================
+  // concat() returns the concatanation of 2 arrays
+  // Paramaters: x and y, the arrays to be concatanated
+  // Returns: An array that contains the concat of 
+  // x and y
+  // ==================================================
+  
+  public static int[] concat(int[] x, int[] y) {
+    int[] result={};
+    int x_len = 0, y_len = 0;
+
+    x_len = x.length;
+    y_len = y.length;
+    result = new int[x_len + y_len];
+
+    // add all the x values to the beginning of the new array
+    for (int i = 0; i <= x_len - 1; i++) {
+      result[i] = x[i];
+    }
+
+    // add all the y values to the end of the new array
+    for (int j = 0; j <= y_len - 1; j++) {
+      result[x_len + j] = y[j];
+    }
+
+    return result;
+  } // end concat()
+  
+  // ==================================================
+  // wrap() returns an integer that wraps around
+  // columns and rows in a magic square
+  // ==================================================
+  
+  public static int wrap(int x, int n) {
+    if (x < 0) x = n - 1;
+    if (x > (n - 1)) x = 0;
+    return x;
+  } // end wrap()
+  
     
 } // end h9 class
