@@ -47,4 +47,18 @@ public class h9t extends TestCase {
     
     assertTrue("MakeMagic() should create a magic square", actual);
   }
+  
+  public void testMakeMagic4() {
+    int[][] x = h9.makeMagic4(4);
+    boolean actual = h9.detectMagic(x);
+    
+    assertTrue("MakeMagic() should create a magic square", actual);
+  }
+  
+  public void testMakeMagic8() {
+    int[][] x = h9.makeMagic4(8);
+    boolean actual = h9.detectMagic(x);
+    
+    assertTrue("MakeMagic() should create a magic square", actual);
+  }
 }

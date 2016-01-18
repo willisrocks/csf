@@ -27,11 +27,24 @@ public class h9t extends TestCase {
     assertFalse("Magic Square must be a rectangle", actual);
   }
   
-  public void testDuplicates() {
+  public void testRange() {
     int[][] grid = h9.make(3, 3, 1, 1);
     boolean actual = h9.detectMagic(grid);
     
-    assertFalse("The array can't contain duplicates", actual);
+    assertFalse("The array must only contain values 1 : n^2", actual);
   }
   
+  public void testSums() {
+    int[][] grid = {{1,2,3},{4,5,6},{7,8,9}};
+    boolean actual = h9.detectMagic(grid);
+    
+    assertFalse("The sums of the rows, cols, and diags must equal the magic number", actual);
+  }
+  
+  public void testMakeMagic() {
+    int[][] x = h9.makeMagic(3);
+    boolean actual = h9.detectMagic(x);
+    
+    assertTrue("MakeMagic() should create a magic square", actual);
+  }
 }

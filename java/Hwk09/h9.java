@@ -1,7 +1,7 @@
 //=================================================
 // -------------- Homework 09 ---------------------
 // -------------- Chris Fenton --------------------
-// -------------- 1/17/2016 -----------------------
+// -------------- 1/18/2016 -----------------------
 //=================================================
 
 public class h9 {
@@ -17,6 +17,7 @@ public class h9 {
     
     // exit early if x isn't a square
     if (!(isSquare(x))) {
+      System.out.println(isSquare(x));
       return false;
     }
     
@@ -55,7 +56,9 @@ public class h9 {
     int y = 0, x = mid;
     
     // ensure odd n
-    if (n % 2 == 0) return new int[0][0];
+    if (n % 2 == 0) {
+      throw new RuntimeException("Square must be odd");
+    }
     
     // put 1 in the middle of the top row
     square[y][x] = 1;
@@ -64,11 +67,11 @@ public class h9 {
       int new_y = y;
       int new_x = x;
       // find diag pos
-      new_y = wrap(y-1,n);
-      new_x = wrap(x+1,n);
+      new_y = wrap(y-1,0,n-1);
+      new_x = wrap(x+1,0,n-1);
       // check to see if new pos is taken
       if (square[new_y][new_x] != 0) {
-        new_y = wrap(y+1,n);
+        new_y = wrap(y+1,0,n-1);
         new_x = x;
       }
       // place number
@@ -79,6 +82,84 @@ public class h9 {
     
     return square;
   } // end makeMagic()
+  
+  // ==================================================
+  // makeMagic4() takes an doubly even n
+  // and returns a 2 dimensional array representing
+  // the magic square
+  // ==================================================
+  
+  public static int[][] makeMagic4(int n) {
+    int[][] square = new int[n][n];
+    int diag_size = n / 4;
+    int mid_size = diag_size * 2;
+    int[] numbers = new int[n*n];
+    int num_cnt = 0;
+    
+    // ensure multiples of 4
+    if (n % 4 != 0) {
+      throw new RuntimeException("Square must be doubly even");
+    }
+    
+    // find corner and middle box coords
+    int[][] top_left = buildBox(diag_size, 0, 0, 0, diag_size - 1);
+    int[][] top_right = buildBox(diag_size, 0, n - diag_size, n - diag_size, n - 1);
+    int[][] bot_left = buildBox(diag_size, n - diag_size, 0, 0, diag_size - 1);
+    int[][] bot_right = buildBox(diag_size, n - diag_size, n - diag_size, n - diag_size, n - 1);
+    int[][] middle = buildBox(mid_size, diag_size, diag_size, diag_size, n - diag_size - 1);
+    
+    // loop through box arrays and mark the square with -1
+    for (int i = 0; i < top_left.length; i++) {
+      square[top_left[i][0]][top_left[i][1]] = -1;
+    }
+    for (int i = 0; i < top_right.length; i++) {
+      square[top_right[i][0]][top_right[i][1]] = -1;
+    }
+    for (int i = 0; i < bot_left.length; i++) {
+      square[bot_left[i][0]][bot_left[i][1]] = -1;
+    }
+    for (int i = 0; i < bot_right.length; i++) {
+      square[bot_right[i][0]][bot_right[i][1]] = -1;
+    }
+    for (int i = 0; i < middle.length; i++) {
+      square[middle[i][0]][middle[i][1]] = -1;
+    }
+    
+    // fill numbers array with 1 : n^2
+    for (int i=0; i < numbers.length; i++) {
+      numbers[i] = i + 1;
+    }
+        
+    // loop through square and update marked squares
+    for (int i = 0; i < square.length; i++) {
+      for (int j = 0; j < square[i].length; j++) {
+        if (square[i][j] == -1) {
+          square[i][j] = numbers[num_cnt];
+          numbers[num_cnt] = 0;
+        }
+        num_cnt++;
+      }
+    }
+    
+    // sort numbers array in desc order
+    insertSortDesc(numbers);
+    num_cnt = 0;
+    
+    // loop through square and update empty squares
+    for (int i = 0; i < square.length; i++) {
+      for (int j = 0; j < square[i].length; j++) {
+        if (square[i][j] == 0) {
+          square[i][j] = numbers[num_cnt];
+          num_cnt++;
+        }
+        
+      }
+    }
+    
+    //printArray(numbers);
+    
+    return square;
+  } // end makeMagic4()
   
   
   // ==================================================
@@ -226,13 +307,10 @@ public class h9 {
     
     // assume square
     int len = x.length * x[0].length;
-    //int[] flat_array = new int[len];
-    int[] temp;
     int[] flat = clone(x[0]);
     
-    for (int i=2; i < x.length; i++) {
-      temp = concat(x[i-1],x[i]);
-      flat = concat(flat, temp);
+    for (int i=1; i < x.length; i++) {
+      flat = concat(x[i], flat);
     }
     
     insertSort(flat);
@@ -262,6 +340,23 @@ public class h9 {
       a[j+1] = temp;
     }
   } // end insertSort()
+  
+  // ==================================================
+  // insertSortDesc() takes an array
+  // and sorts it in descending order using the 
+  // insertion sort algorithm
+  // ==================================================
+  
+  public static void insertSortDesc (int[] a) {
+    for (int i=1; i < a.length; i++) {
+      int temp = a[i];
+      int j;
+      for (j = i - 1; j >= 0 && temp > a[j]; j--) {
+        a[j+1] = a[j];
+      }
+      a[j+1] = temp;
+    }
+  } // end insertSortDesc()
   
   // ==================================================
   // clone() returns a copy of an integer array
@@ -317,11 +412,28 @@ public class h9 {
   // columns and rows in a magic square
   // ==================================================
   
-  public static int wrap(int x, int n) {
-    if (x < 0) x = n - 1;
-    if (x > (n - 1)) x = 0;
+  public static int wrap(int x, int start, int end) {
+    if (x < start) x = end;
+    if (x > end) x = start;
     return x;
   } // end wrap()
   
+  // ==================================================
+  // buildBox() returns an array with the coordinates
+  // of a small box in a magic square
+  // ==================================================
+  
+  public static int[][] buildBox(int n, int y, int x, int start, int end) {
+    int[][] results = new int[n*n][2];
     
+    for (int i=0; i < results.length; i++) {
+      if (i % n == 0 && i > 0) y++;
+      results[i][0] = y;
+      results[i][1] = x;
+      x = wrap(x+1,start,end);
+    }
+    
+    return results;
+  } // end buildBox()
+      
 } // end h9 class
