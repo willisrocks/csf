@@ -6,18 +6,20 @@ Hwk 2
 
 6. Convert the following 32-bit IEEE floating point numbers from hexadecimal into standard
 decimal notation.
-• 0x40200000
-• 0x41020000
-• 0xC1060000
-• 0xBD800000
+• 0x40200000 : 2.5
+• 0x41020000 : 8.125
+• 0xC1060000 : -8.375
+• 0xBD800000 : -0.0625
 
 7. Convert the following decimal numbers into 32-bit IEEE floating point notation.
-• 2.0
-• 45.0
-• 61.01
-• −18.375
+• 2.0 : 01000000000000000000000000000000
+• 45.0 : 01000010001101000000000000000000
+• 61.01 : 01000010011101000000101000111101
+• −18.375 : 11000001100100110000000000000000
 
 8. Are there any numbers that can be represented exactly as a 32-bit integer but not as a 32-bit
 IEEE floating point number? Why or why not?
+
+Yes. 32bit integers with 9 or more significant digits.
 
 
