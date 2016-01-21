@@ -12,12 +12,12 @@ public class h8 {
   // main() calls testAll() to print out the
   // test cases for this lab
   public static void main(String[] args) {
-    testAll();
+    test();
   }
 
   // testAll() calls each method test for this
   // lab and prints the result for each test
-  public static void testAll() {
+  public static void test() {
     h8t.isMember();
     h8t.subArray();
     h8t.union();
