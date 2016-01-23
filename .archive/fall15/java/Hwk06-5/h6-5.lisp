@@ -11,7 +11,12 @@
 
 ;;; The Bunny Slope
 (defun countElements (lst)
-    (list-length lst)
+    (setq sum 1)
+    (cond
+      ((null lst) (setq sum '0))
+      ((atom lst) (setq sum '1))
+      ((+ 1 (countElements (cdr lst))))
+      )
   )
 
 ;;; The Green Circle
@@ -61,16 +66,31 @@
     )
   )
 
+;;; The super double dare-ya mega-challenge with cherry on top
+(defun sandr (tlst rlst)
+  (cond
+    ((atom rlst) tlst)
+    (t (cons (repl (first (first rlst)) (first (rest (first rlst))) tlst) (sandr tlst (rest rlst))))
+    )
+  )
+
+;;; The victory lap
+(defun flatten (lst)
+  (cond
+    ((null lst) nil)
+    ((atom (first lst))(cons (first lst) (flatten (rest lst))))
+    (t (append (flatten (first lst)) (flatten (rest lst)))))
+  )
+
 ;;; Helpers
 (defun repl (s r lst)
   (cond
-	((atom lst) lst)
-	((equal s (first lst)) (repl s r (rest lst)))
-	(t (cons (setf (first lst) r) (repl s r (rest lst))))
-	)
+    ((atom lst) lst)
+    ((not (equal s (first lst))) (repl s r (rest lst)))
+    (t (cons (setf (first lst) r) (repl s r (rest lst))))
+    )
   )
 
-(defun 
 ;============================
 ;        Tests
 ;============================
