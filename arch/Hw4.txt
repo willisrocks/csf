@@ -1,0 +1,110 @@
+==================
+Chris Fenton
+CSF - Arch
+Hwk 4
+==================
+
+
+1.	What extension is commonly used for Jasmin source programs? Give your answer as an example.
+
+    The .j extension. Example, ross_is_a_noob.j
+
+2.	What is the command to assemble a Jasmin program and what is the output of the command? Give your answer as an example.
+
+    The jasmin command. Example, jasmin ross_is_a_noob.j
+
+3.	What is the file extension for a JVM machine code file produced by Jasmin or the Java compiler? Give your answer as an example.
+
+    The .class extension. Example, ross_is_a_noob.class
+
+4.	What is the command to run a Jasmin program? Give your answer as an example.
+
+    The java command. Example, java ross_is_a_noob
+
+5.	What is the command to disassemble a Java class file into a Jasmin program? Give your answer as an example.
+
+    The javap command. Example, javap -v ross_is_a_noob
+
+6.	What is an assembler directive and how do you recognize it in a Jasmin program?
+
+    An assember directive provide metedata. Directives begin with a "." character in Jasmin. Example, .stack 10
+
+7.	What is the purpose of the .limit assembler directive?
+
+    It sets the number of local variables on the stack
+
+8.	What is the Jasmin invokevirtual instruction and what is it used for in the HelloWorld sample program on p67 of Juola? What are the arguments for the instruction?
+
+    The invokevirtual instruction calls an instance method. It's used to call the println method on p67. The arguments are invokevirtual class (arguments)RETURNTYPE. Example, invokevirtual Lab4_Average5Method.average5(IIIII)F
+
+9.	What is the Jasmin invokespecial instruction and what is it used for in the HelloWorld sample program on p67 of Juola? What are the arguments for the instruction?
+
+    It used to invoke the superclass when initializing a class. The arguments are the same as invokevirtual: class, arguments, and return type
+
+10.	What is the Jasmin invokestatic instruction and what is it used for? It is not used in the HelloWorld sample program on p67, but look it up in Juola Apx B and explain what it is used for. What are the arguments for the instruction?
+
+    It invokes a static method, creating a new stack frame for the method, and returning the return value to the calling environment's stack. The args are the class name, method arguments, and return type
+
+11.	What is the Jasmin getstatic instruction and what is it used for in the HelloWorld program on p67 of Juola? What are the arguments for the instruction?
+
+    It retrieves and pushes to the stack the called class variable. It pushes System.out to the stack (or constant pool). The args are the full qualified field (class variable) identifier and the type.
+
+12.	Using the table on p205 of Juola, try to figure out the meaning of the type description nomenclature on the trailing end of both the main declaration and the invokevirtual, invokespecial, and getstatic instructions.
+
+    main: V for void
+    invokevirtual: V for void (println example)
+
+    The "L" preceding fully qualified name tells jasmin what follows is a class
+
+13.	What is the purpose of "boilerplate" code at the beginning of the HelloWorld sample program on p67 of Juola? What do you think the init()V method does?
+
+    It calls the instance initilization method <init>, loads the object onto the stack, calls the superclass' init method, and returns
+
+14.	What is the minimum .limit stack needed for an Average.j program that averages the numbers 25, 18, 5, 8, 22? Hand-write out the Jasmin program along with your asnwer. You may assume the program is a straight-forward implementation rather than something especially clever.
+
+    Minimum stack elements: 5
+
+    ; defines Lab4_Average5Method as a subclass of Object
+    .class public Lab4_Average5Method
+    .super java/lang/Object
+
+    ; boilerplate, same as before
+    .method public <init>()V
+      aload_0
+      invokespecial java/lang/Object/<init>()V
+      return
+    .end method
+
+    .method public static main([Ljava.lang.String;)V
+      .limit stack 5
+      .limit locals 1
+
+       ; load values to be calculated manually
+      ; later we will take these as input on the command line
+      ldc 25.0
+      ldc 18.0
+      ldc 5.0
+      ldc 8.0
+      ldc 22.0
+      fadd
+      fadd
+      fadd
+      fadd
+      ldc 5.0
+      fdiv
+
+      ; push System.out onto the stack
+      getstatic  java/lang/System/out Ljava/io/PrintStream;
+
+      ; The value to print must be at the top of the stack
+      swap
+
+      ; print the result
+      invokevirtual java/io/PrintStream/println(F)V
+
+      return
+    .end method
+
+15.	What is the minimum .limit locals needed for the average program in the previous question? Explain your answer.
+
+    You only need one local location. I don't think I explicitly used a local variable, but I think it might need one for the getstatic call.
