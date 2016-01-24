@@ -1,0 +1,43 @@
+==================
+Chris Fenton
+CSF - Arch
+Hwk 3
+==================
+
+2. What sequence of operations would be used to calculate (7 + 1) · (8 − 3) on a normal (infix notation) calculator? How about on a RPN (postfix) calculator?
+
+7 + 1, 8 - 3, 8 * 5
+7 1 + 8 3 - *
+
+6. What are the advantages and disadvantages of typed arithmetic calculations?
+
+Advantages:
+* You catch type mismatches during compile time instead of run time
+* Greater security against excuting malicious code
+
+Disadvantages:
+* It's tedious to code
+
+8. Which of the following are illegal and why?
+  • bipush 7 - legal
+  • bipush -7 - legal
+  • sipush 7 - legal
+  • ldc -7 - legal
+  • ldc2 -7 - illegal, -7 isn't a 2-word constant
+  • bipush 200 - illegal, 200 doesn't fit into a single byte
+  • ldc 3.5 - legal
+  • sipush -300 - legal
+  • sipush -300.0 illegal, -300.0 is a floating point number, not an integer
+  • ldc 42.15, legal
+
+12. In the ?div instruction, is the number divided by stored at the top of the stack or is it the second element?
+
+The second element. Example, bipush 4, bipush 2, idiv produces 2
+
+13. The surface area of a sphere is four times the area of a circle of equivalent radius. Write a postfix expression to calculate the surface area of a hemispherical dome of radius R.
+
+4.0 3.12 R R * * *
+
+14. Write a postfix expression for the arithmetic mean of the five numbers a, b, c, d, and e.
+
+a b c d e + + + + 5 /
