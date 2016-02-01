@@ -1,0 +1,9 @@
+Chris Fenton
+2/1/2016
+CSF - Ethics
+Seminar Paper Wk 5
+
+Is it possible to adhere to a hacker’s code of ethics without reverting to moral relativism?
+
+Yes, it is possible to adhere to a hacker’s code of ethics without reverting to moral relativism. Moral relativism implies that moral judgements can only be judged relative to some culture, group, or time. The hacker’s code of ethics claims that information should be free. Criticisms of this tenet point out that it wouldn’t be agreeable that all information should be free. For example, most hackers take their privacy seriously. With this criticism in mind, the decision as to what information should be free seems relative. However, what if a new ethical rule that the right to privacy supersedes all other rules? Or what if we took the premise that all information should be free to its absolute conclusion and we made everyone’s personal information freely available? Would this democratize the power that corporations and governments currently have? Is it possible that this might not be the worst outcome? Moreover, if you blindly adhered to the hacker’s ethics, would you be a moral absolutist? Either way, I don’t see much point in saying something reduces to the most extreme option. This is a cheap way to dismiss something that may hold value.
+
