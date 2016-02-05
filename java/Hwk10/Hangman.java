@@ -1,18 +1,90 @@
-// Hangman
-// Elements:
-// Main Menu with options to exit and start a new game
+/* *****************************************
+
+   Title: Hangman
+   Author: Chris Fenton
+   Last Modified: 2/2/2016
+ 
+   Description: Short hangman game for CSF
+
+***************************************** */
 
 public class Hangman {
 
+  // dictionary of possible answers
   public String[] dict = {"chris", "ross", "simon", "chad", "mike", "naomi", 
                           "devlin", "eli", "thomas", "brianna", "christopher",
-                          "badriya", "matthew", "zachary", "josh"}; // dictionary of possible answers
+                          "badriya", "matthew", "zachary", "josh"};
   public int max; // the max amount of tries
   public int lives; // the amount of remaining tries left
   public String answer; // the right answer
   public String attempt; // keeps track of user's guesses
   public int[][] lettersTried; // keeps track of when a user has guessed a letter
   public int currentGuess; // keeps track of the user's current guess
+  
+  // =========================================
+  // main method(), used to invoke mainMenu()
+  // when running the program on the command
+  // line
+  
+  public static void main(String [] args) {
+    mainMenu();
+  } // end main()
+
+  // =========================================
+  // mainMenu(), the main menu loop
+  // provides options to play the game
+  // or exit
+  
+  public static void mainMenu() {
+    int option = 0;
+    
+    while (option != 2) {
+      System.out.println("Enter [1] to play hangperson or [2] to quit: ");
+      option = Keyboard.readInt();
+      if (option == 1) {
+        gameLoop();
+      }
+    }
+    
+    System.out.println("Goodbye!");
+  } // end mainMenu()
+  
+  // =========================================
+  // gameLoop(), the main game loop
+  // invokes the Hangman object and
+  // provides the game logic
+  
+  public static void gameLoop() {
+    // Create Hangman object
+    Hangman game = new Hangman();
+    
+    System.out.println("The goal of the game is to "
+                        + "guess the names of the people "
+                        + "in our class.\n");
+    
+    while ( !(game.attempt.equals(game.answer)) ) {
+      game.drawScreen();
+      game.getGuess();
+      if (game.guessCorrect(game.currentGuess)) {
+        game.updateAttempt(game.currentGuess);
+        game.currentGuess = -1;
+      } else {
+        game.lives -= 1;
+      }
+      
+      if (game.lives == 0) break;
+      
+      //System.out.println(game.attempt + " - " + game.answer);
+    }
+    
+    if (game.attempt.equals(game.answer)) {
+      System.out.println("\nYou won!!!");
+    } else {
+      System.out.println("\nYou lost!!!");
+    }
+    
+    System.out.println("The correct answer was " + game.answer + "\n");
+  } // end gameLoop()
   
   // =========================================
   // Hangman()
@@ -100,7 +172,7 @@ public class Hangman {
   
   public void getGuess() {
     System.out.print("Enter guess: ");
-    int guess = (int) (Keyboard.readChar());
+    int guess = (int) (Character.toLowerCase(Keyboard.readChar()));
     if ( (guess < 97) || (guess > 122)) {
       System.out.println("Please enter a letter [a-z].");
       this.currentGuess = -1;
@@ -115,11 +187,15 @@ public class Hangman {
     }
   } // end getGuess()
   
+  // =========================================
+  // drawScreen() updates the input prompt
+  // displaying the current attempt and
+  // lives left
+  
   public void drawScreen() {
     System.out.println(this.attempt + " - lives left: " + this.lives);
     System.out.println("\n");
-  }
-  
+  } // end drawScreen()
   
 
   // =========================================
