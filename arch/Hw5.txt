@@ -1,0 +1,136 @@
+Chris Fenton
+CSF - Arch
+Homework 5
+
+1.
+
+invokespecial java/lang/Object/<init>()V
+Method: <init>
+Method Type: special
+Arguments: none
+Return Type: Void
+
+invokestatic java/lang/Integer.parseInt(Ljava/lang/String;)I
+Method: parseInt
+Method Type: static
+Arguments: String class
+Return Type: Integer
+
+invokevirtual java/io/PrintStream/println(I)V
+Method: println
+Method Type: virtual
+Arguments: Integer
+Return Type: Void
+
+2.
+
+As a constant in the constant pool
+
+3.
+
+The address of the args array is stored in local 0. To get a value from the array, you have to push the array address to the stack then push the index number to the stack (0 in EchoOneArg.j example), then use the aaload instruction pop the address and the integer, pushing the value from the array to the stack.
+
+4.
+
+The EchoOneArg.j program takes a command line argument, stores it as a String in the args array, pushes it on the stack, and prints it to the console using println.
+
+5.
+
+Array addresses are stored in locals and the values are stored on the heap. To access arrays, you have to push the array address to the stack then push the index number to the stack (0 in EchoOneArg.j example), then use the aaload instruction pop the address and the integer, pushing the value from the array to the stack.
+
+6.
+
+For objects, like Strings and arrays, the object address is stored in the locals.
+
+7.
+
+aaload pushes a value from an array to the stack. It expects the array address and the array index (as an Integer) to be on the stack in that order. It then pops the address and the index integer and pushes the value at that index to the stack.
+
+8.
+
+The first a is for array and the second a is for address.
+
+9.
+
+aload_0: Push the args array address to the stack
+iconst *: Push an integer to the stack. The integer represents the array index position you want on the stack.
+aaload: Push the value from the array address at the integer index position. The address and the index int are on the stack from the last 2 instructions.
+
+10.
+
+System.out and the first command line argument.
+
+11.
+
+Because the main method for both programs is a static method and has no object reference at local #0.
+
+12.
+
+ParseInt takes a command line argument as a string, converts it to an integer using Java's parseInt method, and prints the int to the console.
+
+13.
+
+You can already input 2 integers from the command line, but the second one will still be stored in the args array as a String. To get the second one converted to an int and printed to the console as well, you will need to repeat the process used for the first argument after calling println the first time:
+
+getstatic  java/lang/System/out Ljava/io/PrintStream;
+aload_0
+iconst_1    ; push 1 to the stack to signify index position 1 in the array
+aaload
+invokestatic java/lang/Integer.parseInt(Ljava/lang/String;)I
+invokevirtual java/io/PrintStream/println(I)V
+
+14.
+
+
+; Lab5_AverageLoop.j
+; Chris Fenton, 2/4/2016
+; Input an arbitray number of integer arguments
+; on the command line and print out their
+; average to the console
+
+; class heirarchy
+.class public AverageTwo
+.super java/lang/Object
+
+; standard initializer
+.method public <init>()V
+  aload_0
+  invokespecial java/lang/Object/<init>()V
+  return
+.end method
+
+.method public static main([Ljava.lang.String;)V
+  .limit stack 100
+
+  ; push the string in args[0] on the stack
+  aload_0         ; load args array address from local #0
+  iconst_0        ; load arg array index 0
+  aaload          ; load address of string from array of addresses
+
+  ; call Integer.parseInt to convert the string on stack to an integer
+  invokestatic java/lang/Integer.parseInt(Ljava/lang/String;)I
+
+
+  ; push the string in args[1] on the stack
+  aload_0         ; load args array address from local #0
+  iconst_1        ; load arg array index 1
+  aaload          ; load address of string from array of addresses
+
+  ; call Integer.parseInt to convert the string on stack to an integer
+  invokestatic java/lang/Integer.parseInt(Ljava/lang/String;)I
+
+  iadd            ; sum the 2 ints
+  i2f             ; convert the sum to a float
+  ldc 2.0         ; push the number of items to the stack
+  fdiv            ; push the division of the total and the number to the stack
+
+  ; print out
+  ; use swap to swap the position of System.out and the value to be printed
+  ; so I can keep all the printing instructions as one code block
+
+  getstatic  java/lang/System/out Ljava/io/PrintStream;
+  swap
+  invokevirtual java/io/PrintStream/println(F)V
+
+  return
+.end method
