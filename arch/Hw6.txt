@@ -1,0 +1,19 @@
+1. Why won’t the JVM let you load an integer into the PC directly?
+
+Not all instructions have the same bit length. This could also be dangerous since bits by themself are ambigous. However, the goto instruction does provide a way to alter the PC and jump forward and backwards. By using labels with goto, you lessen some of the dangers associated with the goto command. You're jumping to logical points in the code instead of a fixed number. This makes it easier to understand what's happening with the code and less brittle to changes like inserting a line of code and forgetting to update where the goto points to.
+
+2. How can structured programming concepts be implemented in assembly language?
+
+By using labels and gotos for branching, you can group logical blocks of code in assebly with labels and implement branching between the labels with goto.
+
+3. Is a “branch if greater than 0 or less than 0” instruction available in the JVM instruction set? If not, how would you implement it?
+
+No. You could use the if_icmp instruction twice and have both implementations jump to the same label.
+
+4. Is NaN (not a number) greater or less than 0.0?
+
+It really depends on your interpration of the fcmpg instruction (-1 for NaN). fcmpg takes two floats on the stack, if the second float on the stack is greater than the top float, it returns 1. If they are equal, it returns 0. Otherwise, it returns -1. Since the order of the floats on the stack determine the sign of the integer returned by fcmpg, you could interpret -1 as either greater or less than 0.0.
+
+5. How do you build an if/else-if/else-if/else control structure in jasmin?
+
+You could chain regular if else branching, or you could use the lookupswitch instruction to use a case or switch like analog.
