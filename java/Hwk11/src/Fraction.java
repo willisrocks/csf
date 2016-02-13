@@ -1,6 +1,5 @@
 import java.math.*;
 import java.math.BigInteger;
-import java.util.InputMismatchException;
 
 public class Fraction {
   
@@ -37,7 +36,8 @@ public class Fraction {
       den = BigInteger.ONE;
     }
   }
-  
+
+  // I prefer to use this.num and this.den
   public BigInteger getNum() {
     return num;
   }
@@ -60,7 +60,7 @@ public class Fraction {
   }
 
   public void setFraction(BigInteger n, BigInteger d) {
-    if (d != BigInteger.ZERO) {
+    if (!d.equals(BigInteger.ZERO)) {
       this.num = n;
       this.den = d;
     }
@@ -83,6 +83,7 @@ public class Fraction {
     n = n.multiply(x.den);
     n = n.add(this.den.multiply(x.num));
     d = this.den.multiply(x.den);
+
     setFraction(n,d);
   }
   
@@ -130,10 +131,9 @@ public class Fraction {
       }
       d = d.add(new BigInteger("2"));
     }
-    // pi = pi * 4
-    pi = Fraction.mult(pi, new Fraction("4","1"));
 
-    return pi;
+    // pi = pi * 4
+    return Fraction.mult(pi, new Fraction("4","1"));
   }
   
   // Uses the Nilakantha formula
@@ -180,7 +180,7 @@ public class Fraction {
     return this.num + "/" + this.den;
   }
 
-  public static BigInteger fact(int n) {
+  private static BigInteger fact(int n) {
     BigInteger x = new BigInteger(Integer.toString(n));
     if ((x.signum() == 0) || x.equals(BigInteger.ONE)) {
       return BigInteger.ONE;
@@ -198,7 +198,7 @@ public class Fraction {
     }
   }
 
-  public static BigInteger gcd(BigInteger p, BigInteger q) {
+  private static BigInteger gcd(BigInteger p, BigInteger q) {
     if (q.equals(BigInteger.ZERO)) {
       return p;
     } else {
