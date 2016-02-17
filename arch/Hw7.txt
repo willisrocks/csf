@@ -1,0 +1,24 @@
+Chris Fenton
+CSF - Arch
+2/17/2016
+Homework 7
+
+6. What’s the difference between goto and gotow? Is there a corresponding ifnew?
+
+The goto instruction offset is stored as a short int. The goto_w instruction offset is stored and 32 bit integer. The gotoi_w instruction is needed for large programs where the offset needed for the jump doesn't fit in a short. There is no ifne_w instruction in the JVM, but the assembler could provide this functionality automatically under the hood.
+
+7. The code in Figure 4.8 uses irem to determine if a number is odd or even. Juola’s law of multiple cat skinning states that there’s always at least one more way to do anything. Can you find a way to use iand to determine if a number is odd or even? How about using ior?
+
+You can use iand with a number n and 1, if n is odd the result of iand will be 1. If n is even, the result of iand will be 0. You can also use ior. If you use ior with n and 0, if n is even, the result will be 0. If n is odd, the result will be 1.
+
+8. How about using shift operations?
+
+For even numbers, if you shift it right then shift it back to the left, the number stays the same. This doesn't happen with odd numbers. You can use the ishr and ishl instructions to do this and compare the result on the stack to the original number to see if it's even or odd.
+
+9. What is the error in Figure 4.14? What is the solution?
+
+I think the problem is the parentheses in one of the strings to be printed, and I think the solution is to escape the parentheses.
+
+10. Do the semantics of jsr and ret as presented in this chapter support recursion? Explain.
+
+No, because recursion is done on the stack, and there is no new stack for subroutines. You would need to use a method instead.
