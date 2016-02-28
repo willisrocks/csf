@@ -1,0 +1,48 @@
+Chris Fenton
+CSF - Arch
+Homework 9
+
+===========================
+Stallings Review Questions
+===========================
+
+
+1. List and briefly define the four main elements of a computer.
+
+Processor, main memory, I/O modules, and system bus
+
+2. Define the two main categories of processor registers.
+
+User-visible and control/status registers.
+
+3. In general terms, what are the four distinct actions that a machine instruction can specify?
+
+Processor-memory, processor-I/O, data processing, control
+
+4. What is an interrupt?
+
+An interrupt is a signal that tells the processor that an I/O device has finished processing an instruction
+
+5. How are multiple interrupts dealt with?
+
+Multiple interrupts are either dealt with in sequential order or with a priority system
+
+6. What characteristics distinguish the various elements of a memory hierarchy?
+
+Memory is contrained by size, speed, and cost. A memory hierarchy provides levels from high speed/high cost/low size to low speed/low cost/high size. As you go down the hierarchy you get: decreasing cost, increading capicity, decreasing speed, and decreasing frequency of use by the CPU.
+
+7. What is cache memory?
+
+A buffer to temporarily hold data that is to be read in and out of a disk
+
+8. List and briefly define three techniques for I/O operations.
+
+Programmed I/O, interrupt-driven I/O, direct memory access
+
+9. What is the distinction between spatial locality and termporal locality?
+
+Spatial locality is when accessed data is clustered together in storage. Temporal locality is when access to an object is clustered in time.
+
+10. In general, what are the strategies for exploiting spatial locality and temporal locality?
+
+By using a cache you can take data that previously only had temporal locality and adding spatial locality by clustering it in the cache

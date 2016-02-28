@@ -1,0 +1,29 @@
+Chris Fenton
+CSF - Arch
+Homework 8
+
+4. How are standard methods like String.toUpperCase() incorporated into the JVM?
+
+As built in class methods. You just need to reference the class Ljava/lang/Class; when calling them.
+
+5. What is the difference between a field and a local variable?
+
+Scope. A field has scope within an object. A local variable has scope within a code block.
+
+6. What is the difference between invokevirtual and invokestatic?
+
+invokevirtual invokes an instance method on an object. invokestatic invokes a class method
+
+7. Why do static methods take one fewer than nonstatic arguments?
+
+They don't need a reference to a specific object
+
+8. What is the corresponding type string for the following methods?
+
+a. float toFloat(int) - toFloat(I)F
+b. void printString(String) - printString(Ljava/lang/String;)V
+c. float average(int, int, int, int) average(IIII)F
+d. float average(int []) - average([I)F
+e. double [][] convert(long [][]) - convert([[L)[[D
+f. boolean isTrue(boolean) - isTrue(Z)Z
+9. What is special about the <init> method? - It is invoked with invokespecial
