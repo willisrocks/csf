@@ -1,0 +1,7 @@
+Chris Fenton
+CSF - Ethics
+Week 9 Seminar Paper
+
+When building expert systems, we should aim to build systems that support those human traits that we find admirable. In virtue ethics, some human traits are ends in themselves. One of those traits that we find virtuous in and of itself is honesty. When designing expert systems, we should make every attempt to make our systems as honest as possible. If we purposely embed dishonesty into our systems, we run the risk of inadvertently promoting values that undermine a virtuous society.
+
+Although we should aim to incorporate virtue into our systems, we have to account for the problem domain our systems are designed to operate under. If an expert system is designed for a problem domain that has serious security risks associated with it, then we have to carefully consider the ramifications of trusting those systems to algorithms. If we decide that it is safer to trust the system to an algorithmic design instead of a human, then we have to evaluate the ethical tradeoffs the system will need to account for. In virtue ethics, it is recognized that ethical decisions do not exist in a vacuum--actions aren’t simply right or wrong. We need to take account the constraints we are working under when judging our actions. In an expert system under the constraint of serious security implications, we should aim to make our system as honest as possible under the circumstances.
