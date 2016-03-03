@@ -1,0 +1,23 @@
+Project: Turing Machine Simulator
+
+Description: Build a simple Turing machinei (TM) simulator in Java. The TM will consist of 2 classes: TuringMachine and Tape.
+
+The TuringMachine class will contain the representation of a TM. The TM will need fields for a tape object, head position, alphabet, current state, and the halting state. The TM will read a program from a text file. The TM will contain the following methods: init(), print_tape(), step(), and is_final().
+
+The Tape class will contain the representation of the tape. The tape can be of varying lengths and will get the alphabet from the TM (this will probably be 0 and 1). The tape will use a doubly linked list for it's data structure. Each list in the data structure will contain a previous, data, and next field. I may break the Tape class into 2 different classes with one Tape record that has an array of Cell objects.
+
+Tape Figure (P = previous, C = content, N = next):
+START <-- P C N <--> P C N <--> P C N --> END
+
+Program Structure:
+Text file where each state is a line of text.
+State Structure:
+S R W L/R NS
+S = state, R = read, W = write, L/R = move left or right, NS = next state
+Example:
+A01LB     ; state A: if current cell is a 0, replace it with a 1, move the head to the left, and go to state B.
+
+Some example programs I'm thinking of doing:
+* Take the compliment of a binary number
+* Add two binary numbers
+* Increment a number n times
