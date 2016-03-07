@@ -43,5 +43,12 @@ public class Control {
     return states;
   }
   
+  public static State findState(ArrayList<State> states, String s) {
+    for (State state: states) {
+      if(state.getName().equals(s)) { return state; }
+    }
+    return null;
+  }
+  
   
 } // end Control class

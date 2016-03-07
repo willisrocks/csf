@@ -24,6 +24,10 @@ public class State {
     return result;
   }
   
+  public String getName() {
+    return name;
+  }
+  
   public String toString() {
     return "{" + name + ", Transitions: " + transitions + "}";
   }

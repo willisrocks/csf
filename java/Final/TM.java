@@ -2,35 +2,38 @@ import java.util.*;
 
 class TM {
   
-  public static void main(String args[]) {
-    String[] instructions = {"x01Rx", "y10Rx"};
-    String initialTape = " 010 ";
-    ArrayList<Character> states = Control.getStates(instructions);
-    char[] tape = initialTape.toCharArray();
-    int head = 1;
-    ArrayList<Transition> transitions = Control.getTransitions(instructions);
-    ArrayList<State> stateObjects = Control.setStates(states, transitions);
-    State currentState = stateObjects.get(0);
-    Transition nextTrans = currentState.findTransition(String.valueOf(initialTape.charAt(head)));
-    
-    //System.out.println("Tape:");
-    //System.out.println(tape);
-    //System.out.println("Instructions:");
-    //printArray(instructions);
-    //System.out.println("States:");
-    //System.out.println(states);
-    //System.out.println("Transitions:");
-    //System.out.println(transitions);
-    //System.out.println(stateObjects);
-    System.out.println(nextTrans);
-    
-    // To do: abstract out Tape into its own class
+  private Tape tape;
+  private ArrayList<Character> states;
+  private ArrayList<Transition> transitions;
+  private ArrayList<State> stateObjects;
+  private State startingState;
+  private State haltingState;
+  private State currentState;
+  
+  public TM(String[] instructions, String initialTape, String startingState, String haltingState) {
+    this.tape = new Tape(initialTape);
+    this.states = Control.getStates(instructions);
+    this.transitions = Control.getTransitions(instructions);
+    this.stateObjects = Control.setStates(states, transitions);
+    this.startingState = Control.findState(stateObjects, startingState);
+    this.haltingState = Control.findState(stateObjects, haltingState);
+    this.currentState = this.startingState;
   }
   
-  public static void printArray(String arr[]) {
-    for (int i=0; i<arr.length; i++) {
-      System.out.println(arr[i]);
-    }
+  public Tape getTape() {
+    return tape;
+  }
+  
+  public String getStartingState() {
+    return startingState.toString();
+  }
+  
+  public String getHaltingState() {
+    return haltingState.toString();
+  }
+  
+  public void step() {
+    //Transition rule = currentState.findTransition();
   }
   
 } // end TM class
