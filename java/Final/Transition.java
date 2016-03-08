@@ -1,7 +1,23 @@
 public class Transition {
-  private String currentState, currentVal, newState, newVal, dir;
+  public char currentState, currentVal, newState, newVal, dir;
   
   public Transition (String cs, String cv, String ns, String nv, String d) {
+    this.currentState = cs.charAt(0);
+    this.currentVal   = cv.charAt(0);
+    this.newState     = ns.charAt(0);
+    this.newVal       = nv.charAt(0);
+    this.dir          = d.charAt(0);
+  }
+  
+  public Transition () {
+//    this.currentState = "";
+//    this.currentVal   = "";
+//    this.newState     = "";
+//    this.newVal       = "";
+//    this.dir          = "";
+  }
+  
+  public Transition (char cs, char cv, char ns, char nv, char d) {
     this.currentState = cs;
     this.currentVal   = cv;
     this.newState     = ns;
@@ -9,28 +25,24 @@ public class Transition {
     this.dir          = d;
   }
   
-  public Transition () {
-    this.currentState = "";
-    this.currentVal   = "";
-    this.newState     = "";
-    this.newVal       = "";
-    this.dir          = "";
+  public char getCurrentState() {
+    return currentState;
   }
   
-  public Transition (char cs, char cv, char ns, char nv, char d) {
-    this.currentState = String.valueOf(cs);
-    this.currentVal   = String.valueOf(cv);
-    this.newState     = String.valueOf(ns);
-    this.newVal       = String.valueOf(nv);
-    this.dir          = String.valueOf(d);
+  public char getCurrentVal() {
+    return currentVal;
   }
   
-  public String getCurrentState () {
-    return this.currentState;
+  public char getNewState() {
+    return newState;
   }
   
-  public String getCurrentVal () {
-    return this.currentVal;
+  public char getNewVal() {
+    return newVal;
+  }
+  
+  public char getDir() {
+    return dir;
   }
   
   public String toString() {

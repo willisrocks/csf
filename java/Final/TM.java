@@ -32,8 +32,30 @@ class TM {
     return haltingState.toString();
   }
   
+  public String getCurrentState() {
+    return currentState.toString();
+  }
+  
   public void step() {
-    //Transition rule = currentState.findTransition();
+    Cell head = tape.getCurrentCell();
+    Transition rule = currentState.findTransition(head.getContent());
+    
+    if (head.getContent() == rule.getCurrentVal()) {
+      head.setContent( rule.getNewVal() );
+      if (rule.getDir() == 'R') {
+        tape.moveRight();
+      } 
+      if (rule.getDir() == 'L') {
+        tape.moveLeft();
+      }
+      currentState = Control.findState( stateObjects, String.valueOf(rule.getNewState()) );
+    }
+  }
+  
+  public void run() {
+    while(currentState != haltingState) {
+      step();
+    }
   }
   
 } // end TM class

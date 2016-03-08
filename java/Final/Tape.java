@@ -72,19 +72,86 @@ public class Tape {
       moveRight();
     }
   }
+  
+  public void forwardHead(int index) {
+    while(head.hasNext() && head.getIndex() > index) {
+      moveRight();
+    }
+  }
+  
+  public void setCurrentCell(char c) {
+    head.setContent(c);
+  }
+    
+  private void addCellL() {
+    int originalIndex = head.getIndex();
+    
+    rewindHead();
+    Cell newCell = new Cell('*', head, null, head.getIndex()-1);
+    head.setPrev(newCell);
+    
+    forwardHead(originalIndex);
+  }
+  
+  public void addCellRight() {
+    int originalIndex = head.getIndex();
+    
+    forwardHead();
+    Cell newCell = new Cell('*', null, head, head.getIndex()+1);
+    head.setNext(newCell);
+    
+    rewindHead(originalIndex);
+  }
+  
+  public void reIndex() {
+    int originalIndex = head.getIndex();
+    
+    int index = 0;
+    int min = 0;
+    rewindHead();
+    
+    while(head.hasNext()) {
+      if(head.getIndex() < min) { min = head.getIndex(); }
+      head.setIndex(index);
+      index++;
+      moveRight();
+    }
+    
+    originalIndex += Math.abs(min);
+    rewindHead(originalIndex);
+  }
+  
+  public void addCellLeft() {
+    addCellL();
+    reIndex();
+  }
+    
+  
+  public void printIndexes() {
+    int originalIndex = head.getIndex();
+    rewindHead();
+    while(head.hasNext()) {
+      System.out.print(head.getIndex()+" ");
+      moveRight();
+    }
+    System.out.print("\n");
+    rewindHead(originalIndex);
+  }
+    
+      
       
   
   public void getTapeContents() {
     int originalIndex = head.getIndex();
     rewindHead();
-    if (originalIndex == head.getIndex()) { System.out.print(" >"); }
+    if (originalIndex == head.getIndex()) { System.out.print(">"); }
     System.out.print(head);
-    if (originalIndex == head.getIndex()) { System.out.print("< "); }
+    if (originalIndex == head.getIndex()) { System.out.print("<"); }
     while(head.hasNext()) {
       moveRight();
-      if (originalIndex == head.getIndex()) { System.out.print(" >"); }
+      if (originalIndex == head.getIndex()) { System.out.print(">"); }
       System.out.print(head);
-      if (originalIndex == head.getIndex()) { System.out.print("< "); }
+      if (originalIndex == head.getIndex()) { System.out.print("<"); }
     }
     System.out.print("\n");
     rewindHead(originalIndex);

@@ -33,7 +33,7 @@ public class Control {
     for (Character state: s) {
       ArrayList<Transition> tempTrans = new ArrayList<Transition>();
       for (Transition trans: t) {
-        if (trans.getCurrentState().equals(String.valueOf(state))) {
+        if ( trans.getCurrentState() == state ) {
           tempTrans.add(trans);
         }
       }

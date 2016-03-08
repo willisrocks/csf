@@ -14,19 +14,19 @@ public class State {
     this.transitions = transitions;
   }
   
-  public Transition findTransition (String cell) {
-    Transition result = new Transition();
-    
+  public Transition findTransition (char cv) {
+    Transition result;
+
     for (Transition t : transitions) {
-      if (t.getCurrentVal().equals(cell)) { return t; }
+      if ( t.getCurrentVal() == cv ) { return t; }
     }
     
-    return result;
+    return null;
   }
   
   public String getName() {
     return name;
-  }
+  }  
   
   public String toString() {
     return "{" + name + ", Transitions: " + transitions + "}";
