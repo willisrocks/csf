@@ -1,4 +1,5 @@
 import java.util.*;
+import java.lang.String;
 
 public class Control {
   
@@ -16,6 +17,7 @@ public class Control {
   public static ArrayList<Transition> getTransitions (String[] instr) {
     ArrayList<Transition> transitions = new ArrayList<Transition>();
     for (int i = 0; i < instr.length; i++) {
+      instr[i] = instr[i].replaceAll("B", " "); // replace blanks
       Transition t = new Transition(instr[i].charAt(0), // cs
                                     instr[i].charAt(1), // cv
                                     instr[i].charAt(4), // ns
@@ -49,6 +51,5 @@ public class Control {
     }
     return null;
   }
-  
   
 } // end Control class
