@@ -1,0 +1,18 @@
+# Initial Tape
+111
+
+# Initial State
+a
+
+# Halting State
+h
+
+# Instructions
+aBBRb
+b00Rb
+b11Rb
+bBBLc
+c01Rh
+c10Lc
+cB1Lh
+h****

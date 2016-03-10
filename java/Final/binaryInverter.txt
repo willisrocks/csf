@@ -1,0 +1,15 @@
+# Starting Tape
+01010101010110
+
+# Starting State
+s
+
+# Ending State
+h
+
+# Instructions
+sBBRx
+x01Rx
+x10Rx
+xBBLh
+h****
