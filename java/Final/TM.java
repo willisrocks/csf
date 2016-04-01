@@ -53,8 +53,16 @@ class TM {
   }
   
   public void run() {
-    while(currentState != haltingState) {
+    while (currentState != haltingState) {
       step();
+    }
+  }
+  
+  public void runWithTape() {
+    tape.getTapeContents(true);
+    while (currentState != haltingState) {
+      step();
+      tape.getTapeContents(true);
     }
   }
   
