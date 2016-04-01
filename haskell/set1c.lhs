@@ -76,17 +76,109 @@ Exception
 
 [8,8,1,2,3]
 
-3.2.3
+3.3
 
 > cat8 [] = [8]
 > cat8 x = x ++ [8]
 
-3.2.4
+3.4
 
-myCons list thing = thing:list
+> myCons list thing = thing:list
 
-3.2.3
+3.5
 
+3.5.1
 
+[1,2,3,[]] Not valid, 1:2:3:[]
 
+3.5.2
+
+[1,[2,3],4] Not valid, 1:[2,3]:4
+
+3.5.3
+
+[[1,2,3],[]] Valid (list of lists), [1,2,3]:[]
+
+3.6
+
+3.6.1
+
+[]:[[1,2,3],[4,5,6]], Valid, [[],[1,2,3],[4,5,6]]
+
+3.6.2
+
+[]:[], Valid, [[]]
+
+3.6.3
+
+[]:[]:[], Valid, [[],[]]
+
+3.6.4
+
+[1]:[]:[], Valid, [[1],[]]
+
+3.6.5
+
+["hi"]:[1]:[], Valid, [["hi"],[1]]
+
+R.7
+
+Yes, because they are all the same type
+
+3.8
+
+Not valid. The second item is not a list where items 1 and 3 are.
+
+3.9
+
+> tuple = (4, "hello", True)
+
+3.10
+
+They are all valild tuples
+
+3.11
+
+3.11.1
+
+Because tuples are immutable
+
+3.11.2
+
+A new tuple with the consed item at the head and the contents of the original tuple concatenated to the tail.
+
+3.12
+
+1:(2,3), not valid, tuples don't have the cons function
+(2,4):(2,3), not valid, tuples don't have the cons function
+(2,4):[], not valid, tuples don't have the cons function
+[(2,4),(5,5),('a','b')], not valid, the tuples all have to have the same type signature
+([2,4],[2,2]), valid, a tuple of lists
+
+3.13
+
+> a = (("Hello", 4), True)
+> answer = snd (fst a)
+
+3.14
+
+Tuples are heterogeneous. They can have elements with different types.
+
+3.15
+
+> headTailTuple x = (head x, tail x)
+
+3.16
+
+> sillyFifth x = head (tail (tail (tail (tail x ) ) ) )
+
+3.17
+
+3.17.1
+
+headTailTuple :: [a] -> (a, [a])
+
+3.17.2
+
+sillyFifth :: [a] -> a
 
