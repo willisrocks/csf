@@ -1,33 +1,5 @@
 Team Members: Alex, Chris, Ross, Simon
 
-## Week 2
-
-In week 2, we completed CIRC-02 from Boxall. We successfully wired 8 LEDs and wrote a loop to cycle the LEDS in various patterns. Since we used red LEDs, it kind of looked like Kit from Knight Rider.
-
-## Week 1
-
-In week 1, we completed CIRC-01 from Boxall. We successfully wired our board and LED, programmed, and ran our sketch. Here's our source code:
-
-```
-int ledPin = 13;
-int blinkTime = 500;
-
-void setup() {
-  // put your setup code here, to run once:
-  pinMode(ledPin, OUTPUT);
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(ledPin, HIGH);
-  delay(blinkTime);
-  digitalWrite(ledPin, LOW);
-  delay(blinkTime);
-}
-```
-
-Our LED blinked every .5 second.
-
 ## Project Proposal
 
 Arduino Project - Weather Pod
@@ -65,3 +37,29 @@ Wrap-up and demo
 
 Initial Parts List:
 Arduino Uno (or Mega), Ethernet Shield, Baromoter/Temp sensor, Battery Pack<Paste>
+
+## Week 2
+
+In week 2, we completed CIRC-02 from Boxall. Additionaly, we successfully wired 8 LEDs and wrote a loop to cycle the LEDS in various patterns. Since we used red LEDs, it kind of looked like Kit from Knight Rider.
+
+## Week 1
+
+In week 1, we completed CIRC-01 from Boxall. We successfully wired our board and LED, programmed, and ran our sketch. Here's our source code:
+
+```
+int ledPin = 13;
+int blinkTime = 500;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(ledPin, HIGH);
+  delay(blinkTime);
+  digitalWrite(ledPin, LOW);
+  delay(blinkTime);
+}
+```
