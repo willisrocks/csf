@@ -1,0 +1,6 @@
+rename-session haskell
+rename-window ide
+split-window -v
+split-window -h
+resize-pane -t 2 -D 20
+resize-pane -t 3 -R 15

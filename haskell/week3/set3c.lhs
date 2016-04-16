@@ -1,3 +1,6 @@
+Author: Chris Fenton
+Assignment: Haskell Set 3c
+
 1. What are the types of the following values?
 
 >	x = ['a', 'b', 'c']
