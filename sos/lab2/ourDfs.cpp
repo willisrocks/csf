@@ -54,16 +54,15 @@ void dfs(arrayStack<string> & s) {
 
 			dir = opendir( (char*)str.data());
 			if (dir != NULL) {
-
 				//	while ( you are reading the directory) {
 				while ((d = readdir(dir)) != NULL) {
 					string dirname;
 					int dType = d->d_type;
 
 					// construct the path name
-					if (dType == 4) {
+					if (dType == 0x4) {
 						dirname = str + d->d_name + "/";
-					} else if (dType == 8) {
+					} else if (dType == 0x8) {
 						dirname = str + d->d_name;
 					}
 					// check for . and ..
