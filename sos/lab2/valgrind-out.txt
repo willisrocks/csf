@@ -1,0 +1,149 @@
+==11470== Memcheck, a memory error detector
+==11470== Copyright (C) 2002-2010, and GNU GPL'd, by Julian Seward et al.
+==11470== Using Valgrind-3.6.0.SVN-Debian and LibVEX; rerun with -h for copyright info
+==11470== Command: ./lab2
+==11470== 
+DFS
+
+Opened Directory
+pushed test/file2
+pushed test/test2
+pushed test/file1
+
+Closed Directory
+***********
+File: test/file1
+Size: 0
+***********
+
+Opened Directory
+pushed test/test2/file4
+==11470== Invalid read of size 4
+==11470==    at 0x4ED1FF8: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x40216A: arrayStack<std::string>::push(std::string const&) (arrayStack.h:64)
+==11470==    by 0x40193A: dfs(arrayStack<std::string>&) (lab2.cpp:70)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470==  Address 0x5949620 is 16 bytes inside a block of size 41 free'd
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A9F: dfs(arrayStack<std::string>&) (lab2.cpp:31)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470== 
+==11470== Invalid write of size 4
+==11470==    at 0x4ED1FFE: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x40216A: arrayStack<std::string>::push(std::string const&) (arrayStack.h:64)
+==11470==    by 0x40193A: dfs(arrayStack<std::string>&) (lab2.cpp:70)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470==  Address 0x5949620 is 16 bytes inside a block of size 41 free'd
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A9F: dfs(arrayStack<std::string>&) (lab2.cpp:31)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470== 
+==11470== Invalid free() / delete / delete[]
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1FD4: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x40216A: arrayStack<std::string>::push(std::string const&) (arrayStack.h:64)
+==11470==    by 0x40193A: dfs(arrayStack<std::string>&) (lab2.cpp:70)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470==  Address 0x5949610 is 0 bytes inside a block of size 41 free'd
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A9F: dfs(arrayStack<std::string>&) (lab2.cpp:31)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470== 
+pushed test/test2/file3
+
+Closed Directory
+==11470== Invalid read of size 4
+==11470==    at 0x4ED1EEB: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A9F: dfs(arrayStack<std::string>&) (lab2.cpp:31)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470==  Address 0x59494e0 is 16 bytes inside a block of size 41 free'd
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A72: dfs(arrayStack<std::string>&) (lab2.cpp:76)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470== 
+==11470== Invalid write of size 4
+==11470==    at 0x4ED1EF1: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A9F: dfs(arrayStack<std::string>&) (lab2.cpp:31)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470==  Address 0x59494e0 is 16 bytes inside a block of size 41 free'd
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A72: dfs(arrayStack<std::string>&) (lab2.cpp:76)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470== 
+==11470== Invalid free() / delete / delete[]
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A9F: dfs(arrayStack<std::string>&) (lab2.cpp:31)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470==  Address 0x59494d0 is 0 bytes inside a block of size 41 free'd
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A72: dfs(arrayStack<std::string>&) (lab2.cpp:76)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470== 
+***********
+File: test/test2/file3
+Size: 0
+***********
+***********
+File: test/test2/file4
+Size: 0
+***********
+***********
+File: test/file2
+Size: 0
+***********
+==11470== Invalid read of size 4
+==11470==    at 0x4ED1EEB: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x402476: arrayStack<std::string>::~arrayStack() (arrayStack.h:18)
+==11470==    by 0x401C1D: main (lab2.cpp:103)
+==11470==  Address 0x59519d0 is 16 bytes inside a block of size 47 free'd
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A9F: dfs(arrayStack<std::string>&) (lab2.cpp:31)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470== 
+==11470== Invalid write of size 4
+==11470==    at 0x4ED1EF1: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x402476: arrayStack<std::string>::~arrayStack() (arrayStack.h:18)
+==11470==    by 0x401C1D: main (lab2.cpp:103)
+==11470==  Address 0x59519d0 is 16 bytes inside a block of size 47 free'd
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A9F: dfs(arrayStack<std::string>&) (lab2.cpp:31)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470== 
+==11470== Invalid free() / delete / delete[]
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x402476: arrayStack<std::string>::~arrayStack() (arrayStack.h:18)
+==11470==    by 0x401C1D: main (lab2.cpp:103)
+==11470==  Address 0x59519c0 is 0 bytes inside a block of size 47 free'd
+==11470==    at 0x4C23E0F: operator delete(void*) (vg_replace_malloc.c:387)
+==11470==    by 0x4ED1EE8: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.13)
+==11470==    by 0x401A9F: dfs(arrayStack<std::string>&) (lab2.cpp:31)
+==11470==    by 0x401C0C: main (lab2.cpp:102)
+==11470== 
+==11470== 
+==11470== HEAP SUMMARY:
+==11470==     in use at exit: 8 bytes in 1 blocks
+==11470==   total heap usage: 24 allocs, 28 frees, 66,401 bytes allocated
+==11470== 
+==11470== 8 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==11470==    at 0x4C24DFA: operator new(unsigned long) (vg_replace_malloc.c:261)
+==11470==    by 0x401B78: main (lab2.cpp:99)
+==11470== 
+==11470== LEAK SUMMARY:
+==11470==    definitely lost: 8 bytes in 1 blocks
+==11470==    indirectly lost: 0 bytes in 0 blocks
+==11470==      possibly lost: 0 bytes in 0 blocks
+==11470==    still reachable: 0 bytes in 0 blocks
+==11470==         suppressed: 0 bytes in 0 blocks
+==11470== 
+==11470== For counts of detected and suppressed errors, rerun with: -v
+==11470== ERROR SUMMARY: 16 errors from 10 contexts (suppressed: 4 from 4)
