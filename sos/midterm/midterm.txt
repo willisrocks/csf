@@ -1,0 +1,65 @@
+## SOS Midterm
+Author: Chris Fenton
+
+1.
+
+2. Partial path compression
+
+```
+int DisjSets::root( int x ) {
+  while ( x != s[x] ) {
+    s[x] = s[s[x]];
+    x = s[x];
+  }
+  return x;
+}
+
+int DisjSets::find( int x ) {
+  if ( s[x] < 0 )
+    return x;
+  else
+    return root(x) == root(s);
+  
+}
+```
+
+3. Shortest Paths
+
+V | A    B    C    D    E    F    G
+-----------------------------------
+A | 0a   5a   3a  inf  inf  inf  inf
+C | -    5a   3a  10c  10c  inf  inf
+B | -    5a   -   10c  8b   inf  6b
+G | -    -    -   10c  7g   inf  6b
+E | -    -    -   9e   7g   8e   -
+F | -    -    -   9e   -    8e   -
+D | -    -    -   9e   -    -    -
+
+Shorest Paths = {a->b:5, a->c:3, a->d:9, a->e:7, a->f:8, a->g:6}
+
+4.
+
+5. MST
+
+(a) Prim's
+
+N | 1   2   3    4   5    6   | S
+1 | -   6   1    5   inf  inf | {1}
+2 | -   6   -    5   7    5   | {1, 1->3}
+3 | -   6   -    -   7    5   | {1, 1->3, 1->4}
+4 | -   6   -    -   7    -   | {1, 1->3, 1->4, 1->3->6}
+5 | -   -   -    -   7    -   | {1, 1->3, 1->4, 1->3->6, 1->3->2}
+                              | {1, 1->3, 1->4, 1->3->6, 1->3->2, 1->3->5}
+
+(b) Kruskal's
+
+W | E
+- | -
+1 | 1<->3
+4 | 3<->6
+5 | 1<->4
+5 | 3<->2
+6 | 3<->5
+Total = 21
+
+
