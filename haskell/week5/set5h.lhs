@@ -29,6 +29,16 @@ Assignment: Set 5 - At Home
 > treeFold f acc (Node a l r) = f a ( f (treeFold f acc l) (treeFold f acc r) )
 
 2. Write the traversals: preorder, postorder, and inorder..
+
+> preorder Empty = []
+> preorder (Node a Empty Empty) = [a]
+> preorder (Node a l r) = a : (preorder l) ++ (preorder r)
+
+> postorder Empty = []
+> postorder (Node a Empty Empty) = [a]
+> postorder (Node a l r) = (postorder l) ++ (preorder r) ++ [a]
+
+
 3. Now you're going to make an expression tree. An expression tree contains either operands or operators.
 
 > data Expr = Op Char Expr Expr | Leaf Int
