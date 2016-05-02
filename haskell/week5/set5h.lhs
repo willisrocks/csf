@@ -38,12 +38,25 @@ Assignment: Set 5 - At Home
 > postorder (Node a Empty Empty) = [a]
 > postorder (Node a l r) = (postorder l) ++ (preorder r) ++ [a]
 
+> inorder Empty = []
+> inorder (Node a Empty Empty) = [a]
+> inorder (Node a l r) = (inorder l) ++ [a] ++ (inorder r)
+
 
 3. Now you're going to make an expression tree. An expression tree contains either operands or operators.
 
 > data Expr = Op Char Expr Expr | Leaf Int
->   deriving (Show)
+>   deriving (Show, Eq)
+
+> 
 
 Construct several trees so that you understand this type. Then write an evaluator.
+
+> evalTree (Op c (Leaf l) (Leaf r)) 
+>   | c == '+' = (+) l r
+>   | c == '-' = (-) r l
+> evalTree (Op c l r) 
+>   | c == '+' = (+) (evalTree l) (evalTree r)
+>   | c == '-' = (-) (evalTree r) (evalTree l)
 
 4. Make your tree type a module. (Consult the lecture notes for an example.)
