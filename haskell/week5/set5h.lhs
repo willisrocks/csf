@@ -54,9 +54,29 @@ Construct several trees so that you understand this type. Then write an evaluato
 
 > evalTree (Op c (Leaf l) (Leaf r)) 
 >   | c == '+' = (+) l r
->   | c == '-' = (-) r l
+>   | c == '-' = (-) l r
+>   | c == '*' = (*) l r
+>   | c == '/' = (div) l r
+
 > evalTree (Op c l r) 
 >   | c == '+' = (+) (evalTree l) (evalTree r)
->   | c == '-' = (-) (evalTree r) (evalTree l)
+>   | c == '-' = (-) (evalTree l) (evalTree r)
+>   | c == '*' = (*) (evalTree l) (evalTree r)
+>   | c == '/' = (div) (evalTree l) (evalTree r)
+
 
 4. Make your tree type a module. (Consult the lecture notes for an example.)
+
+Would go on top of the file:
+
+  module Tree
+  ( Tree(Empty,Node),
+    treeFold,
+    bInsert,
+    listToTree,
+    preorder,
+    postorder,
+    inorder,
+    Expr(Op,Leaf),
+    evalTree ) where
+
