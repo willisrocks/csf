@@ -10,7 +10,7 @@ Do as many of these as you can. You want to get "fold" into your head.
 sumsq n = 12 + 22 + 32 + . . . + n^2
 Do not use the function map.
 
-> sumsq n = foldl (+) 0 xs where 
+> sumsq n = foldl (+) 0 xs where
 >   xs = map (^2) [1..n]
 
 If I'm not allowed to use map to build my list, then I'll use list comprehension
@@ -18,11 +18,20 @@ If I'm not allowed to use map to build my list, then I'll use list comprehension
 > sumsq' n = foldl (+) 0 xs where
 >   xs = [x^2 | x <- [1..n]]
 
-2. Define length, which returns the number of elements in a list, using foldr . Rede- fine it using foldl.
+2. Define length, which returns the number of elements in a list, using foldr. Redefine it using foldl.
 
-3. Define minlist, which returns the smallest integer in a non-empty list of integers, using foldr1 . Redefine it using foldl1 .
+> length' xs = foldl (\acc a -> acc + (a `div` a)) 0 xs
+> length'' xs = foldr (\a acc -> acc + (a `div` a)) 0 xs
 
-4. Define reverse, which reverses a list, using foldr .
+3. Define minlist, which returns the smallest integer in a non-empty list of integers, using foldr1 . Redefine it using foldl1.
+
+> minlist xs = foldr1 min xs
+> minlist' xs = foldl1 min xs
+
+4. Define reverse, which reverses a list, using foldr.
+
+> reverse' xs = foldl (\acc x-> x : acc) [] xs
+> reverse'' xs = foldr (\x acc -> acc ++ [x]) [] xs
 
 5. Using foldr , define a function remove which takes two strings as its arguments and removes every letter from the second list that occurs in the first list. For example, remove "first" "second" = "econd".
 
