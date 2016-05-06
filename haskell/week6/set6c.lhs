@@ -35,13 +35,33 @@ If I'm not allowed to use map to build my list, then I'll use list comprehension
 
 5. Using foldr , define a function remove which takes two strings as its arguments and removes every letter from the second list that occurs in the first list. For example, remove "first" "second" = "econd".
 
-6. Define filter using foldr . Define filter again using foldl.
+> remove s r = foldr (\x y -> filter (/= x) y) r s
+
+6. Define filter using foldr . Define filter again using folde.
+
+> filter' f (x:xs) = foldr (\x xs -> if f x then x:xs else xs) [] xs
+> filter'' f (x:xs) = foldl (\xs x -> if f x then xs ++ [x] else xs) [] xs
 
 7. The function remdups removes adjacent duplicates from a list. For example,
 
 remdups [1, 2, 2, 3, 3, 3, 1, 1] = [1, 2, 3, 1].
 
 Define remdups using foldr . Give another definition using foldl.
+
+> remdups (x:xs) = foldr (\x xs -> if (elem x xs) then xs else x:xs) [] xs
+> remdups' (x:xs) = foldl (\xs x -> if (elem x xs) then xs else xs ++ [x]) [] xs
+
+Having it defined using the left and the right folds is nice here since it could matter what direction you remove the dupplicates from.
+
+*Main> remdups [1,1,2,2,1]
+[2,1]
+
+The way I wrote it, foldr keeps the right hand side (removes duplicates on the left)
+
+*Main> remdups' [1,1,2,2,1]
+[1,2]
+
+And with foldl, it keeps the left hand side non duplicates
 
 ;;;;;;;;;;;;;;;;;;;
 List comprehensions
@@ -51,21 +71,32 @@ List comprehensions
 
 > l1 = [n*n | n<-[1..10], even n]
 
+[4,16,36,64,100]
 
 > l2 = [ 7 | n <- [1..4]]
 
+[7,7,7,7]
 
 > l3 = [(x,y) | x <-[1..3], y<-[4..7]]
 
+[(1,4),(1,5),(1,6),(1,7),(2,4)...]
 
 > l4 = [(m,n) | m <-[1..3], n<-[1..m]]
 
+[(1,1),(2,1),(2,2),(3,1),(3,2),(3,3)]
 
 > l5 = [j | i<-[1,-1,2,-2], i>0, j<-[1..i]]
 
+[1,1,2]
 
 > l6 = [a+b | (a,b) <-[(1,2), (3,4), (5,6)]]
 
+[3,7,11]
+
 2. Use a list comprehension to define a function neglist xs that computes the number of negative elements in a list.
 
+> neglist xs = length [x | x <- xs, x < 0]
+
 3. Use a list comprehension to define a function gensquares low high that generates a list of squares of all the even numbers from low to hgh inclusive.
+
+> gensquares low high = [n^2 | n <- [low..high], even n]
