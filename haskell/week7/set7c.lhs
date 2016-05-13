@@ -35,4 +35,22 @@ Assignment: Haskell Set 7 - At Home
 >   | i == j = x
 >   | i > j = f xs i (j+1)
 
+> bang' x i = g x i 0
+>   where
+>     g (x:xs) i j
+>       | i == j = x
+>       | i > j = g xs i (j+1)
+
 7. Implement mergesort
+
+> msort [] = []
+> msort [x] = [x]
+> msort x = merge (msort (left x)) (msort (right x))
+>   where
+>     merge x [] = x
+>     merge [] y = y
+>     merge (x:xs) (y:ys)
+>       | (x <= y) = x : (merge xs (y:ys))
+>       | otherwise = y : (merge (x:xs) ys)
+>     left x = take (length x `div` 2) x
+>     right x = drop (length x `div` 2) x
