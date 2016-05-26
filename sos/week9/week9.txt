@@ -1,0 +1,10 @@
+Author: Chris Fenton
+Assignment: Week 9 - Chapter 11
+
+11.2. Suppose a binomial queue of N = 2k − 1 elements is built. Alternately perform M insert and deleteMin pairs. Clearly, each operation takes O(log N) time. Why does this not contradict the amortized bound of O(1) for insertion?
+
+11.11. In Chapter 5, we described rehashing: When a table becomes more than half full, a new table twice as large is constructed, and the entire old table is rehashed. Give a formal amortized analysis, with potential function, to show that the amortized cost of an insertion is still O(1).
+
+11.12. What is the maximum depth of a Fibonacci heap?
+
+11.14. Show that the binomial queues actually support merging in O(1) amortized time. Define the potential of a binomial queue to be the number of trees plus the rank of the largest tree.
