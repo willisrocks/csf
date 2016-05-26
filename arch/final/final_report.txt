@@ -1,0 +1,5 @@
+Chris Fenton
+CSF - Arch
+Final Project Writeup
+
+We built a portable weather station that records weather data in the field, saves it locally on the arduino, and submits it to our server when connected to the Internet for further retrieval and analysis.
