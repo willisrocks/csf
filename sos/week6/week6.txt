@@ -11,7 +11,45 @@ b. Modify your algorithm to obtain an O(N log N) time bound. (Hint: The time bou
 
 10.3. A file contains only colons, spaces, newlines, commas, and digits in the following frequency: colon (100), space (605), newline (100), comma (705), 0 (431), 1 (242), 2 (176), 3 (59), 4 (185), 5 (250), 6 (174), 7 (199), 8 (205), 9 (217). Construct the Huffman code.
 
+Sorted frequency table and encoding:
+
+Val	Freq		Val	Encoding
+3	59		:	110111
+:	100		_	111
+\n	100		\n	11010
+6	174		,	00
+2	176		0	100
+4	185		1	1010
+7	199		2	11001
+8	205		3	110110
+9	217		4	0100
+1	242		5	1011
+5	250		6	11000
+0	431		7	0101
+_	605		8	0110
+,	705		9	0111
+
+Huffman tree:
+
+                        *
+                        /\
+                       /  \
+                      /    \
+                     *      *
+                   /  \    / \
+                  (,)  *   *   *
+                      / \ / \  / \
+                    *   * 0 *  *  (_)
+                  / \  / \ / \ / \
+                 4  7 8  9 1 5 *    *
+                              / \   / \
+                             6   2 (\n) *
+                                       / \
+                                      3  (:)
+
 10.6. Show that if the symbols are sorted by frequency, Huffman’s algorithm can be implemented in linear time.
+
+When sorted, you simply insert each symbol in the tree. For (n) symbols, you have (n) inserts.
 
 10.10. Explain how to implement first fit and best fit in O(N log N) time.
 
