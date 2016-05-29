@@ -39,7 +39,21 @@ SkipList<T>::~SkipList() {
 /* **************************************************************** */
 
 #if INSERT || ALL
-// TODO: insert() method
+// Compiles but gets stuck in an infinite loop
+template <class T>
+void SkipList<T>::insert(const T & newValue) {
+	int level = randomLevel();
+	Node<T> *node = this->head;
+	Node<T> *insertNode = new Node<T>(newValue, level);
+
+	while ((level - 1) >= 0) {
+		while (node->next[level] != NULL && node->next[level]->data < newValue) {
+			node = node->next[level];
+		}
+		insertNode->next[level] = node->next[level];
+		node->next[level] = insertNode;
+	}
+}
 #endif
 
 /* **************************************************************** */
