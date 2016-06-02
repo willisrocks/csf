@@ -1,0 +1,34 @@
+William Fenton
+SOS - Spring Final
+
+1.
+a) a < b^k so T(n) = O(n logn)
+b) leaves grow faster than n/2, so T(n) = O(n^(logb a))
+c) leaves grow faster, so T(n) = O(n^(logb a))
+d) leaves grow faster, so T(n) = O(n^(logb a))
+
+4.
+
+a) mergesort. divides the problem in to subproblems until it hits the base case and merges.
+b) dijkstra's. gets the path distance of all of its neighbors and choices the current optimal and keeps updating
+c) LCS. it records answers to the subproblems in a table and solves iteratively instead of recursively.
+
+8.
+
+a)
+a : 1111100
+b : 1111101
+c : 111111
+d : 11110
+e : 1110
+f : 110
+g : 10
+h : 0
+
+b) something like all 1s exect the last 2 bits then start shifting til you hit zero
+c) greedy. we make a forest of trees and choose the optimal tree at each stage.
+
+12.
+
+a) sGHIt
+b) not in this case, cause the size of the queue is 1 at each step. if it was larger than 1, then you would get a different order.
